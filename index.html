@@ -133,6 +133,13 @@
 
       /* phone mockup */
       .phone-stage{display:flex;justify-content:center;padding:8px 0 4px}
+      .hero-side{display:none}
+      @media (min-width:901px){
+        .phone-stage{align-items:center;gap:30px;padding-top:54px;padding-bottom:68px}
+        .hero-side{display:block;position:relative;width:262px;height:536px;margin:0;border-radius:30px;overflow:hidden;box-shadow:var(--shadow-lg);flex:none}
+        .hero-side img{width:100%;height:100%;object-fit:cover}
+        .hero-side figcaption{position:absolute;left:14px;bottom:14px;background:rgba(6,38,33,.74);color:#fff;font-size:13px;font-weight:700;padding:7px 13px;border-radius:99px}
+      }
       .phone{width:min(330px,88vw);background:var(--teal-deep);border-radius:42px;padding:11px;box-shadow:var(--shadow-lg)}
       .phone .screen{background:var(--surface-2);border-radius:33px;overflow:hidden;padding:18px 16px 16px;min-height:520px;display:flex;flex-direction:column;gap:13px}
       .ph-top{display:flex;align-items:center;justify-content:space-between}
@@ -717,6 +724,10 @@
 
       <!-- PHONE MOCKUP -->
       <div class="wrap phone-stage" data-page="home" aria-label="Contoh tampilan aplikasi LangkahLisan">
+        <figure class="hero-side">
+          <img src="assets/tokyo.jpg" alt="Persimpangan Shibuya di Tokyo, Jepang, pada malam hari" loading="lazy" width="1000" height="1314" />
+          <figcaption>Tokyo · Bahasa Jepang</figcaption>
+        </figure>
         <div class="phone" role="img" aria-label="Mockup aplikasi: progres Bahasa Jepang level A2, streak 24 hari, skor pengucapan 86, dan daftar pelajaran hari ini">
           <div class="screen">
             <div class="ph-top">
@@ -754,6 +765,10 @@
             <button class="cta" type="button">Lanjut Belajar · 15 Menit</button>
           </div>
         </div>
+        <figure class="hero-side">
+          <img src="assets/seoul.jpg" alt="Istana Gyeongbokgung di Seoul, Korea Selatan" loading="lazy" width="1000" height="664" />
+          <figcaption>Seoul · Bahasa Korea</figcaption>
+        </figure>
       </div>
 
       <!-- STATS -->
