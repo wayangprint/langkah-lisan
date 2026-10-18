@@ -187,6 +187,9 @@
       .lang-card.wide-r{grid-column:span 3}
       .lang-card img{width:100%;height:150px;object-fit:cover}
       .lang-card .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+      .lang-card .lang-pick{margin-top:6px;align-self:flex-start}
+      .lang-card.selected{outline:2px solid var(--teal);outline-offset:2px}
+      .lang-pick[disabled]{opacity:.85;cursor:default}
       .lang-card h3{font-size:21px;font-weight:800;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
       .lang-card h3 .script{font-size:15px;color:var(--amber-deep);font-weight:700}
       .lang-card p{color:var(--ink-2);font-size:14.5px}
@@ -823,44 +826,49 @@
             <p>Data Duolingo 2026 menempatkan Indonesia di 5 pasar dengan pertumbuhan tercepat di dunia, dengan urutan bahasa teratas: Inggris, Jepang, dan Mandarin — pangsa pembelajar Mandarin bahkan hampir 3× lipat sejak 2023.</p>
           </div>
           <div class="lang-grid">
-            <article class="lang-card wide-l">
+            <article class="lang-card wide-l" data-lang="inggris">
               <img src="assets/london.jpg" alt="Menara Big Ben dan Gedung Parlemen di London, Inggris" loading="lazy" width="999" height="676" />
               <div class="body">
                 <h3>Bahasa Inggris <span class="script">Hello!</span></h3>
                 <p>Bahasa #1 yang dipelajari di Indonesia — untuk kuliah ke luar negeri, karier, dan syarat beasiswa. Jalur lengkap A1–C2 plus persiapan IELTS &amp; TOEFL.</p>
                 <div class="tagrow"><span class="tag">IELTS · TOEFL</span><span class="tag amber">Kuliah &amp; karier</span><span class="tag">A1–C2</span></div>
+                <button type="button" class="btn btn-teal btn-sm lang-pick">Pilih Bahasa Inggris</button>
               </div>
             </article>
-            <article class="lang-card wide-r">
+            <article class="lang-card wide-r" data-lang="jepang">
               <img src="assets/tokyo.jpg" alt="Persimpangan Shibuya di Tokyo, Jepang, pada malam hari" loading="lazy" width="1000" height="1314" />
               <div class="body">
                 <h3>Bahasa Jepang <span class="script">こんにちは</span></h3>
                 <p>Sudah ada 180 ribu+ pekerja Indonesia di Jepang dan terus bertambah — Jepang menargetkan 1,2 juta pekerja asing pada 2028. Target kerja: JLPT N4–N3.</p>
                 <div class="tagrow"><span class="tag">JLPT N5–N1</span><span class="tag coral">Jalur kerja SSW</span><span class="tag">A1–C2</span></div>
+                <button type="button" class="btn btn-teal btn-sm lang-pick">Pilih Bahasa Jepang</button>
               </div>
             </article>
-            <article class="lang-card">
+            <article class="lang-card" data-lang="mandarin">
               <img src="assets/taipei.jpg" alt="Gedung Taipei 101 dan cakrawala kota Taipei, Taiwan" loading="lazy" width="1000" height="657" />
               <div class="body">
                 <h3>Bahasa Mandarin <span class="script">你好</span></h3>
                 <p>Kunci bekerja di Taiwan dan Hong Kong — dua tujuan penempatan PMI terbesar. Pembelajar Indonesia 4,15× lebih mungkin belajar Inggris + Mandarin sekaligus dibanding rata-rata global.</p>
                 <div class="tagrow"><span class="tag">HSK 1–9</span><span class="tag coral">Kerja Taiwan/HK</span></div>
+                <button type="button" class="btn btn-teal btn-sm lang-pick">Pilih Bahasa Mandarin</button>
               </div>
             </article>
-            <article class="lang-card">
+            <article class="lang-card" data-lang="korea">
               <img src="assets/seoul.jpg" alt="Istana Gyeongbokgung di Seoul, Korea Selatan" loading="lazy" width="1000" height="664" />
               <div class="body">
                 <h3>Bahasa Korea <span class="script">안녕하세요</span></h3>
                 <p>Untuk lolos EPS-TOPIK dan bekerja di Korea, kuliah, atau sekadar menikmati K-drama &amp; K-pop tanpa subtitle. Target kerja dan kuliah umumnya TOPIK 3–4.</p>
                 <div class="tagrow"><span class="tag">TOPIK 1–6</span><span class="tag coral">Jalur EPS</span></div>
+                <button type="button" class="btn btn-teal btn-sm lang-pick">Pilih Bahasa Korea</button>
               </div>
             </article>
-            <article class="lang-card">
+            <article class="lang-card" data-lang="jerman">
               <img src="assets/berlin.jpg" alt="Gerbang Brandenburg di Berlin, Jerman" loading="lazy" width="1000" height="586" />
               <div class="body">
                 <h3>Bahasa Jerman <span class="script">Hallo!</span></h3>
                 <p>Sertifikat B1 adalah syarat wajib visa Ausbildung; perawat membutuhkan B2. Jerman memproyeksikan kebutuhan ±120 ribu perawat tambahan pada 2034.</p>
                 <div class="tagrow"><span class="tag">Goethe A1–C2</span><span class="tag coral">Ausbildung</span></div>
+                <button type="button" class="btn btn-teal btn-sm lang-pick">Pilih Bahasa Jerman</button>
               </div>
             </article>
           </div>
@@ -1326,7 +1334,7 @@
                   <span class="plan-chip plan-gratis" id="dashPlanChip">Gratis</span>
                 </div>
                 <h2>Mulai perjalanan belajarmu</h2>
-                <p class="sub">Selamat datang di LangkahLisan! Kamu belum memulai pelajaran apa pun — perjalananmu dimulai dari <strong>Level A1</strong>. Bahasa bawaan dashboardmu adalah <strong>Bahasa Inggris</strong>; kamu bisa menggantinya kapan saja di halaman Bahasa.</p>
+                <p class="sub">Selamat datang di LangkahLisan! Kamu belum memulai pelajaran apa pun — perjalananmu dimulai dari <strong>Level A1</strong>. Bahasa pilihanmu saat ini adalah <strong id="dashLangName">Bahasa Inggris</strong>; kamu bisa menggantinya kapan saja di halaman Bahasa.</p>
                 <a class="btn btn-amber dash-continue" href="#/bahasa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:19px;height:19px"><path d="M8 5.5v13l11-6.5z"/></svg>Pilih Bahasa &amp; Mulai</a>
               </div>
               <div class="dash-streakcard">
@@ -1344,7 +1352,7 @@
 
             <div class="dash-card">
               <div class="dash-card-head">
-                <h3>Jalur Progres CEFR — Bahasa Inggris</h3>
+                <h3 id="dashCefrTitle">Jalur Progres CEFR — Bahasa Inggris</h3>
                 <span class="pill warn">Kamu di sini: A1 · 0% — baru mulai</span>
               </div>
               <div class="path" role="img" aria-label="Jalur level CEFR: A1 posisi awalmu dengan progres 0 persen, A2 target berikutnya, lalu B1, B2, C1, dan C2">
@@ -1884,6 +1892,36 @@
         paket_kerja:{ name:"Paket Siap Kerja", priceText:"Rp499.000", per:"sekali bayar per jalur negara" }
       };
       var state = { user:null, plan:"gratis", planActive:false, verified:false, pending:null };
+      /* ---------- Bahasa pilihan dashboard (tersimpan di browser) ---------- */
+      var DASH_LANGS = {
+        inggris:"Bahasa Inggris", jepang:"Bahasa Jepang", mandarin:"Bahasa Mandarin",
+        korea:"Bahasa Korea", jerman:"Bahasa Jerman"
+      };
+      function getDashLang(){ try{ return localStorage.getItem("ll_lang") || "inggris"; }catch(e){ return "inggris"; } }
+      function setDashLang(k){ try{ localStorage.setItem("ll_lang", k); }catch(e){} }
+      function renderLangSelect(){
+        var cur = getDashLang();
+        document.querySelectorAll(".lang-card").forEach(function(card){
+          var k = card.getAttribute("data-lang");
+          var btn = card.querySelector(".lang-pick");
+          if(!k || !btn || !DASH_LANGS[k]) return;
+          var isCur = (k === cur);
+          card.classList.toggle("selected", isCur);
+          btn.textContent = isCur ? "\u2713 Bahasa Dipilih" : "Pilih " + DASH_LANGS[k];
+          btn.disabled = isCur;
+          btn.setAttribute("aria-pressed", isCur ? "true" : "false");
+        });
+      }
+      document.addEventListener("click", function(e){
+        var btn = (e.target && e.target.closest) ? e.target.closest(".lang-pick") : null;
+        if(!btn || btn.disabled) return;
+        var card = btn.closest(".lang-card");
+        var k = card && card.getAttribute("data-lang");
+        if(!k || !DASH_LANGS[k]) return;
+        setDashLang(k);
+        renderLangSelect();
+        location.hash = "#/dashboard";
+      });
       var selectedPlan = "premium";
       var proofFile = null;
 
@@ -1951,6 +1989,7 @@
         if(mb) mb.setAttribute("aria-expanded","false");
         if(r.page === "bayar" && r.query.paket && PLANS[r.query.paket]) selectPlan(r.query.paket);
         if(r.page === "dashboard") renderDashboard();
+        if(r.page === "bahasa") renderLangSelect();
         window.scrollTo(0, 0);
       }
       window.addEventListener("hashchange", applyRoute);
@@ -2201,6 +2240,9 @@
         chip.className = "plan-chip plan-" + planKey;
         chip.textContent = PLANS[planKey].name;
         document.getElementById("dashUpsell").classList.toggle("hidden", paid);
+        var langName = DASH_LANGS[getDashLang()] || "Bahasa Inggris";
+        document.getElementById("dashLangName").textContent = langName;
+        document.getElementById("dashCefrTitle").textContent = "Jalur Progres CEFR — " + langName;
         renderDashFeatures(paid);
         var list = document.getElementById("dashTasks");
         list.innerHTML = "";
