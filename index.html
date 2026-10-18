@@ -731,7 +731,7 @@
       <!-- KEMBALI KE BERANDA + BREADCRUMB (tampil di semua halaman selain Beranda) -->
       <div class="wrap crumb-bar hidden" id="crumbBar">
         <div class="crumb-in">
-          <a class="back-home" href="#/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>Kembali ke Beranda</a>
+          <a class="back-home" href="#/" aria-label="Kembali ke halaman sebelumnya" onclick="if(history.length>1){history.back();return false;}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
           <nav class="crumb" aria-label="Breadcrumb"><a href="#/">Beranda</a><span class="sep" aria-hidden="true">/</span><span class="cur" id="crumbName" aria-current="page"></span></nav>
         </div>
       </div>
