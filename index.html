@@ -657,6 +657,39 @@
       .q-card h4{font-family:"Bricolage Grotesque",sans-serif;font-size:17px;font-weight:800;margin:0 0 5px;color:var(--ink)}
       .q-card p{font-size:14px;color:var(--ink-2)}
       .q-card .arr{font-size:13.5px;font-weight:800;color:var(--teal);margin-top:10px;display:inline-block}
+
+      /* ---------- pembedaan paket di dashboard (badge, upsell, gembok) ---------- */
+      .dash-hello-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+      .plan-chip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;letter-spacing:.03em;border-radius:99px;padding:5px 13px;border:1.5px solid transparent;line-height:1.3}
+      .plan-chip::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+      .plan-chip.plan-gratis{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.30);color:#C7D5CF}
+      .plan-chip.plan-premium{background:var(--amber);border-color:var(--amber);color:#231600}
+      .plan-chip.plan-paket_kerja{background:var(--good);border-color:var(--good);color:#fff}
+      @media (prefers-color-scheme: dark){.plan-chip.plan-paket_kerja{color:#0B2422}}
+      .dash-upsell{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:20px;padding:18px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
+      .dash-upsell .up-ic{width:44px;height:44px;flex:none;border-radius:13px;background:var(--amber);display:grid;place-items:center}
+      .dash-upsell .up-ic svg{width:23px;height:23px;color:#231600}
+      .dash-upsell p{flex:1;min-width:230px;font-size:15px;color:var(--ink)}
+      .dash-upsell p strong{color:var(--amber-deep)}
+      @media (prefers-color-scheme: dark){.dash-upsell p strong{color:var(--amber)}}
+      .dash-upsell .btn{flex:none}
+      .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      @media (max-width:640px){.feat-grid{grid-template-columns:1fr}}
+      .feat{display:flex;gap:13px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:15px;padding:15px 16px;color:var(--ink);text-decoration:none}
+      a.feat.locked:hover{border-color:var(--amber-deep)}
+      .feat .fic{width:42px;height:42px;flex:none;border-radius:12px;display:grid;place-items:center}
+      .feat .fic svg{width:22px;height:22px}
+      .feat .fmid{display:flex;flex-direction:column;gap:2px;min-width:0}
+      .feat .fname{font-weight:800;font-size:15px;line-height:1.3}
+      .feat .fdesc{font-size:13px;color:var(--ink-2);line-height:1.45}
+      .feat .fstat{font-size:12px;font-weight:800;margin-top:4px}
+      .feat.locked .fstat{color:var(--amber-deep)}
+      .feat.open .fstat{color:var(--good)}
+      .feat .flock{margin-left:auto;flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+      .feat .flock svg{width:18px;height:18px}
+      .feat.locked .flock{background:var(--amber-soft);color:var(--amber-deep)}
+      .feat.open .flock{background:var(--good-soft);color:var(--good)}
+      .feat.locked .fname,.feat.locked .fdesc{opacity:.82}
     </style>
   </head>
   <body>
@@ -1290,7 +1323,10 @@
           <div id="dashMain">
             <div class="dash-hero">
               <div class="dash-welcome">
-                <p class="dash-hello" id="dashHello">Halo!</p>
+                <div class="dash-hello-row">
+                  <p class="dash-hello" id="dashHello">Halo!</p>
+                  <span class="plan-chip plan-gratis" id="dashPlanChip">Gratis</span>
+                </div>
                 <h2>Mau lanjut dari terakhir kamu berhenti?</h2>
                 <p class="sub">Bahasa Jepang · Level A2 — terakhir kamu belajar <strong>Berbicara: Memesan Makanan</strong> (Unit 4), sesi shadowing yang belum selesai. Satu sesi lagi dan unit ini tuntas.</p>
                 <a class="btn btn-amber dash-continue" href="#/demo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:19px;height:19px"><path d="M8 5.5v13l11-6.5z"/></svg>Lanjutkan Belajar</a>
@@ -1300,6 +1336,12 @@
                 <div class="big">24 <small>hari streak</small></div>
                 <p>Belajar setiap hari tanpa putus sejak 24 hari lalu. Rekor pribadimu 31 hari — kerjakan 1 tugas hari ini agar streak tidak putus.</p>
               </div>
+            </div>
+
+            <div class="dash-upsell hidden" id="dashUpsell">
+              <span class="up-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.735H5.81a1 1 0 0 1-.957-.735L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg></span>
+              <p><strong>Kamu masih pakai paket Gratis</strong> — buka 5 bahasa + tutor AI tanpa batas dengan Premium, mulai Rp99.000/bulan.</p>
+              <a class="btn btn-amber btn-sm" href="#/bayar">Lihat Paket</a>
             </div>
 
             <div class="dash-card">
@@ -1380,6 +1422,14 @@
                 <p class="dash-note-txt" id="dashTodayTxt">XP hari ini: 0 / 100</p>
                 <p class="dash-note-txt">Roadmap ini disusun dari progresmu: pengucapan masih jadi titik terlemahmu minggu ini, jadi latihan shadowing muncul lagi hari ini. Klik kotak centang setelah selesai mengerjakan — di versi produksi, statusnya dicatat otomatis dari aktivitasmu.</p>
               </div>
+            </div>
+
+            <div class="dash-card">
+              <div class="dash-card-head">
+                <h3>Fitur Premium</h3>
+                <span class="hint" id="dashFeatHint"></span>
+              </div>
+              <div class="feat-grid" id="dashFeatures"></div>
             </div>
 
             <h3 class="dash-h">Akses Cepat</h3>
@@ -2052,7 +2102,7 @@
               state.planActive = true;
               state.pending = null;
             }
-            renderAuthArea(); renderAuthPage(); renderPayBody(); renderStatus();
+            renderAuthArea(); renderAuthPage(); renderPayBody(); renderStatus(); renderDashboard();
           }
         }).catch(function(){});
         sb.from("verifikasi").select("paket, proof_url, status").eq("user_id", state.user.id).order("created_at", { ascending:false }).limit(1).then(function(res){
@@ -2085,9 +2135,12 @@
           });
         }
       })();
-      /* Cek status verifikasi berkala selama ada pengajuan menunggu (pola Portal Beasiswa) */
+      /* Cek status verifikasi berkala selama ada pengajuan menunggu (pola Portal Beasiswa);
+         juga sinkronkan selama dashboard terbuka agar badge paket & gembok fitur
+         di dashboard ikut berubah begitu admin memverifikasi pembayaran. */
       setInterval(function(){
-        if(state.user && state.pending && !state.verified) syncAccount();
+        if(!state.user) return;
+        if((state.pending && !state.verified) || currentRoute().page === "dashboard") syncAccount();
       }, 20000);
 
       /* ---------- Dashboard (setelah login — data contoh, simulasi lokal) ---------- */
@@ -2097,6 +2150,38 @@
         { t:"Latihan Pengucapan — Shadowing “Memesan Makanan”", s:"Lanjutan sesi kemarin · titik terlemahmu minggu ini", xp:20, href:"#/demo", go:"Latih →", done:false },
         { t:"Review Kosakata SRS — 38 kartu jatuh tempo", s:"Pengulangan terjadwal agar tidak lupa", xp:15, href:"#/demo", go:"Review →", done:false }
       ];
+      var LOCK_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+      var LOCK_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.7-1.6"/></svg>';
+      var DASH_FEATURES = [
+        { name:"Tutor AI tanpa batas", desc:"Ngobrol dengan tutor AI kapan saja — tanpa kuota sesi harian seperti di paket Gratis.", bg:"var(--teal-soft)", fg:"var(--teal)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' },
+        { name:"Sertifikat CEFR", desc:"Sertifikat terverifikasi setiap kamu menuntaskan satu level — siap dilampirkan ke CV.", bg:"var(--amber-soft)", fg:"var(--amber-deep)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--amber-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>' },
+        { name:"Mode offline", desc:"Unduh pelajaran & kosakata ke perangkatmu, lalu belajar tanpa koneksi internet.", bg:"var(--coral-soft)", fg:"var(--coral)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>' },
+        { name:"Jalur Siap Kerja", desc:"Jalur khusus JLPT / EPS-TOPIK / Goethe B1 lengkap dengan bank soal & mock exam resmi.", bg:"var(--good-soft)", fg:"var(--good)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>' }
+      ];
+      function renderDashFeatures(paid){
+        var wrap = document.getElementById("dashFeatures");
+        if(!wrap) return;
+        document.getElementById("dashFeatHint").textContent = paid
+          ? "Semua fitur paketmu sudah terbuka"
+          : "Terkunci di paket Gratis — ketuk fitur untuk upgrade";
+        wrap.innerHTML = "";
+        DASH_FEATURES.forEach(function(f){
+          var el = document.createElement(paid ? "div" : "a");
+          el.className = "feat " + (paid ? "open" : "locked");
+          if(!paid){
+            el.href = "#/bayar";
+            el.setAttribute("aria-label", f.name + " — fitur paket berbayar, buka halaman Pilih Paket & Bayar untuk upgrade");
+          }
+          el.innerHTML =
+            '<span class="fic" style="background:' + f.bg + '">' + f.icon + '</span>' +
+            '<span class="fmid"><span class="fname"></span><span class="fdesc"></span>' +
+            '<span class="fstat">' + (paid ? "Aktif di paketmu" : "Terkunci · Upgrade untuk membuka") + '</span></span>' +
+            '<span class="flock" aria-hidden="true">' + (paid ? LOCK_OPEN : LOCK_CLOSED) + '</span>';
+          el.querySelector(".fname").textContent = f.name;
+          el.querySelector(".fdesc").textContent = f.desc;
+          wrap.appendChild(el);
+        });
+      }
       function renderDashboard(){
         var guest = document.getElementById("dashGuest");
         var main = document.getElementById("dashMain");
@@ -2109,6 +2194,16 @@
         var hr = new Date().getHours();
         var greet = hr < 11 ? "Selamat pagi" : (hr < 15 ? "Selamat siang" : (hr < 19 ? "Selamat sore" : "Selamat malam"));
         document.getElementById("dashHello").textContent = greet + ", " + name + "!";
+        /* Pembedaan paket — mengikuti kolom plan di tabel profiles Supabase
+           (state.plan / state.planActive diperbarui oleh syncAccount,
+           termasuk lewat polling verifikasi yang sudah ada). */
+        var paid = state.planActive && state.plan !== "gratis";
+        var planKey = paid ? state.plan : "gratis";
+        var chip = document.getElementById("dashPlanChip");
+        chip.className = "plan-chip plan-" + planKey;
+        chip.textContent = PLANS[planKey].name;
+        document.getElementById("dashUpsell").classList.toggle("hidden", paid);
+        renderDashFeatures(paid);
         var list = document.getElementById("dashTasks");
         list.innerHTML = "";
         var xpToday = 0, xpTotal = 0, doneCount = 0;
