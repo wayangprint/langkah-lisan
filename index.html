@@ -1389,7 +1389,7 @@
                 </div>
               </div>
               <div class="trackbar"><i style="width:0%"></i></div>
-              <p class="dash-note-txt"><strong>0 XP</strong> terkumpul — kamu mulai dari Level A1 Bahasa Inggris. Selesaikan pelajaran pertamamu untuk mulai mengisi jalur ini. <a href="#/level">Lihat peta level A1–C2 →</a></p>
+              <p class="dash-note-txt"><strong>0 XP</strong> terkumpul — kamu mulai dari Level A1 <span id="dashXpLang">Bahasa Inggris</span>. Selesaikan pelajaran pertamamu untuk mulai mengisi jalur ini. <a href="#/level">Lihat peta level A1–C2 →</a></p>
             </div>
 
             <div class="dash-grid">
@@ -1426,7 +1426,7 @@
                 <ul class="task-list" id="dashTasks"></ul>
                 <div class="trackbar"><i id="dashTodayBar" style="width:0%"></i></div>
                 <p class="dash-note-txt" id="dashTodayTxt">XP hari ini: 0 / 100</p>
-                <p class="dash-note-txt">Ini titik awalmu: empat langkah pertama untuk memulai dari nol di Bahasa Inggris Level A1. Belum ada yang selesai — centang tugas setelah kamu mengerjakannya, dan XP-mu mulai terisi dari sini.</p>
+                <p class="dash-note-txt">Ini titik awalmu: empat langkah pertama untuk memulai dari nol di <span id="dashStartLang">Bahasa Inggris</span> Level A1. Belum ada yang selesai — centang tugas setelah kamu mengerjakannya, dan XP-mu mulai terisi dari sini.</p>
               </div>
             </div>
 
@@ -2243,6 +2243,10 @@
         var langName = DASH_LANGS[getDashLang()] || "Bahasa Inggris";
         document.getElementById("dashLangName").textContent = langName;
         document.getElementById("dashCefrTitle").textContent = "Jalur Progres CEFR — " + langName;
+        var xpLangEl = document.getElementById("dashXpLang");
+        if(xpLangEl) xpLangEl.textContent = langName;
+        var startLangEl = document.getElementById("dashStartLang");
+        if(startLangEl) startLangEl.textContent = langName;
         renderDashFeatures(paid);
         var list = document.getElementById("dashTasks");
         list.innerHTML = "";
@@ -2265,7 +2269,7 @@
           var mid = document.createElement("div");
           mid.innerHTML = '<div class="tt"></div><div class="ts"></div>';
           mid.querySelector(".tt").textContent = task.t;
-          mid.querySelector(".ts").textContent = task.s;
+          mid.querySelector(".ts").textContent = task.s.replace(/^Bahasa Inggris/, langName);
           var xp = document.createElement("span");
           xp.className = "xp"; xp.textContent = "+" + task.xp + " XP";
           var go = document.createElement("a");
