@@ -1312,8 +1312,6 @@
       <!-- DASHBOARD (tampil setelah login) -->
       <section id="dashboard" data-page="dashboard">
         <div class="wrap">
-          <div class="mock-note"><strong>Data contoh tampilan.</strong> Progres CEFR, streak, XP, dan tugas harian di dashboard ini adalah data contoh untuk memperlihatkan tampilan perjalanan belajar — angka-angkanya belum dibaca dari riwayat belajarmu.</div>
-
           <div id="dashGuest" class="dash-guest hidden">
             <h2>Dashboard belajarmu ada di dalam</h2>
             <p>Masuk dulu untuk melihat jalur progres CEFR-mu, menjaga streak harian, dan mengerjakan tugas belajar hari ini.</p>
@@ -1327,14 +1325,14 @@
                   <p class="dash-hello" id="dashHello">Halo!</p>
                   <span class="plan-chip plan-gratis" id="dashPlanChip">Gratis</span>
                 </div>
-                <h2>Mau lanjut dari terakhir kamu berhenti?</h2>
-                <p class="sub">Bahasa Jepang · Level A2 — terakhir kamu belajar <strong>Berbicara: Memesan Makanan</strong> (Unit 4), sesi shadowing yang belum selesai. Satu sesi lagi dan unit ini tuntas.</p>
-                <a class="btn btn-amber dash-continue" href="#/demo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:19px;height:19px"><path d="M8 5.5v13l11-6.5z"/></svg>Lanjutkan Belajar</a>
+                <h2>Mulai perjalanan belajarmu</h2>
+                <p class="sub">Selamat datang di LangkahLisan! Kamu belum memulai pelajaran apa pun — perjalananmu dimulai dari <strong>Level A1</strong>. Bahasa bawaan dashboardmu adalah <strong>Bahasa Inggris</strong>; kamu bisa menggantinya kapan saja di halaman Bahasa.</p>
+                <a class="btn btn-amber dash-continue" href="#/bahasa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:19px;height:19px"><path d="M8 5.5v13l11-6.5z"/></svg>Pilih Bahasa &amp; Mulai</a>
               </div>
               <div class="dash-streakcard">
                 <span class="flame"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 4-3 5.5-3 9a3 3 0 0 0 6 0c0-1-.5-1.8-1-2.5 2 .8 4 2.8 4 5.5A6 6 0 0 1 6 15c0-5 5-7 6-13z"/></svg></span>
-                <div class="big">24 <small>hari streak</small></div>
-                <p>Belajar setiap hari tanpa putus sejak 24 hari lalu. Rekor pribadimu 31 hari — kerjakan 1 tugas hari ini agar streak tidak putus.</p>
+                <div class="big">0 <small>hari streak</small></div>
+                <p>Streak-mu mulai berjalan setelah pelajaran pertamamu selesai. Belajar sedikit setiap hari — mulai hari ini.</p>
               </div>
             </div>
 
@@ -1346,25 +1344,25 @@
 
             <div class="dash-card">
               <div class="dash-card-head">
-                <h3>Jalur Progres CEFR — Bahasa Jepang</h3>
-                <span class="pill warn">Kamu di sini: A2 · 62% menuju B1</span>
+                <h3>Jalur Progres CEFR — Bahasa Inggris</h3>
+                <span class="pill warn">Kamu di sini: A1 · 0% — baru mulai</span>
               </div>
-              <div class="path" role="img" aria-label="Jalur level CEFR: A1 selesai, A2 sedang berjalan 62 persen, B1 target berikutnya, lalu B2, C1, dan C2">
-                <span class="fill-line" aria-hidden="true"></span>
-                <div class="node done">
-                  <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-                  <span class="nm">A1<br>Beginner</span>
-                  <span class="st8">Selesai</span>
-                </div>
+              <div class="path" role="img" aria-label="Jalur level CEFR: A1 posisi awalmu dengan progres 0 persen, A2 target berikutnya, lalu B1, B2, C1, dan C2">
+                <span class="fill-line" style="width:0%" aria-hidden="true"></span>
                 <div class="node now">
-                  <span class="dot">A2</span>
-                  <span class="nm">A2<br>Elementary</span>
-                  <span class="st8">Kamu di sini</span>
+                  <span class="dot">A1</span>
+                  <span class="nm">A1<br>Beginner</span>
+                  <span class="st8">Kamu di sini · 0%</span>
                 </div>
                 <div class="node next">
+                  <span class="dot">A2</span>
+                  <span class="nm">A2<br>Elementary</span>
+                  <span class="st8">Target berikutnya</span>
+                </div>
+                <div class="node">
                   <span class="dot">B1</span>
                   <span class="nm">B1<br>Intermediate</span>
-                  <span class="st8">Target berikutnya</span>
+                  <span class="st8">Nanti</span>
                 </div>
                 <div class="node">
                   <span class="dot">B2</span>
@@ -1382,8 +1380,8 @@
                   <span class="st8">Nanti</span>
                 </div>
               </div>
-              <div class="trackbar"><i style="width:62%"></i></div>
-              <p class="dash-note-txt"><strong>1.240 XP</strong> terkumpul di level A2 — butuh ±410 XP lagi untuk membuka B1. Perkiraan dengan ritmemu sekarang: 9–12 hari lagi. <a href="#/level">Lihat peta level A1–C2 →</a></p>
+              <div class="trackbar"><i style="width:0%"></i></div>
+              <p class="dash-note-txt"><strong>0 XP</strong> terkumpul — kamu mulai dari Level A1 Bahasa Inggris. Selesaikan pelajaran pertamamu untuk mulai mengisi jalur ini. <a href="#/level">Lihat peta level A1–C2 →</a></p>
             </div>
 
             <div class="dash-grid">
@@ -1393,23 +1391,23 @@
                   <span class="hint">Senin – hari ini</span>
                 </div>
                 <div class="stat-tiles">
-                  <div class="stat-tile"><div class="n">340 <small>XP</small></div><div class="d">XP minggu ini (+18% dari minggu lalu)</div></div>
-                  <div class="stat-tile"><div class="n">128 <small>menit</small></div><div class="d">Waktu belajar minggu ini</div></div>
-                  <div class="stat-tile"><div class="n">86 <small>/100</small></div><div class="d">Skor pengucapan terakhir</div></div>
-                  <div class="stat-tile"><div class="n">214 <small>kata</small></div><div class="d">Kosakata A2 sudah dikuasai</div></div>
+                  <div class="stat-tile"><div class="n">0 <small>XP</small></div><div class="d">XP minggu ini</div></div>
+                  <div class="stat-tile"><div class="n">0 <small>menit</small></div><div class="d">Waktu belajar minggu ini</div></div>
+                  <div class="stat-tile"><div class="n">— <small>/100</small></div><div class="d">Skor pengucapan — belum ada latihan</div></div>
+                  <div class="stat-tile"><div class="n">0 <small>kata</small></div><div class="d">Kosakata dikuasai</div></div>
                 </div>
-                <div class="wk" role="img" aria-label="Grafik XP per hari minggu ini: Senin 45, Selasa 60, Rabu 30, Kamis 75, Jumat 50, Sabtu 55, hari ini 25">
-                  <div class="col"><div class="colbar" style="height:60%"><i style="height:100%"></i></div><span class="dl">Sen</span></div>
-                  <div class="col"><div class="colbar" style="height:80%"><i style="height:100%"></i></div><span class="dl">Sel</span></div>
-                  <div class="col"><div class="colbar" style="height:40%"><i style="height:100%"></i></div><span class="dl">Rab</span></div>
-                  <div class="col"><div class="colbar" style="height:100%"><i style="height:100%"></i></div><span class="dl">Kam</span></div>
-                  <div class="col"><div class="colbar" style="height:67%"><i style="height:100%"></i></div><span class="dl">Jum</span></div>
-                  <div class="col"><div class="colbar" style="height:73%"><i style="height:100%"></i></div><span class="dl">Sab</span></div>
-                  <div class="col today"><div class="colbar" style="height:33%"><i style="height:100%"></i></div><span class="dl">Min*</span></div>
+                <div class="wk" role="img" aria-label="Grafik XP per hari minggu ini: belum ada XP yang tercatat — semua hari masih nol">
+                  <div class="col"><div class="colbar" style="height:6%"><i style="height:0%"></i></div><span class="dl">Sen</span></div>
+                  <div class="col"><div class="colbar" style="height:6%"><i style="height:0%"></i></div><span class="dl">Sel</span></div>
+                  <div class="col"><div class="colbar" style="height:6%"><i style="height:0%"></i></div><span class="dl">Rab</span></div>
+                  <div class="col"><div class="colbar" style="height:6%"><i style="height:0%"></i></div><span class="dl">Kam</span></div>
+                  <div class="col"><div class="colbar" style="height:6%"><i style="height:0%"></i></div><span class="dl">Jum</span></div>
+                  <div class="col"><div class="colbar" style="height:6%"><i style="height:0%"></i></div><span class="dl">Sab</span></div>
+                  <div class="col today"><div class="colbar" style="height:6%"><i style="height:0%"></i></div><span class="dl">Min*</span></div>
                 </div>
-                <p class="dash-note-txt">*Hari ini masih berjalan — selesaikan tugas di samping untuk mengejar target harianmu.</p>
-                <div class="trackbar teal"><i style="width:68%"></i></div>
-                <p class="dash-note-txt">Target mingguan: <strong>340 / 500 XP</strong> (68%)</p>
+                <p class="dash-note-txt">*Belum ada aktivitas belajar minggu ini — grafik ini mulai terisi begitu kamu menyelesaikan pelajaran pertamamu.</p>
+                <div class="trackbar teal"><i style="width:0%"></i></div>
+                <p class="dash-note-txt">Target mingguan: <strong>0 / 500 XP</strong> (0%)</p>
               </div>
 
               <div class="dash-card">
@@ -1420,7 +1418,7 @@
                 <ul class="task-list" id="dashTasks"></ul>
                 <div class="trackbar"><i id="dashTodayBar" style="width:0%"></i></div>
                 <p class="dash-note-txt" id="dashTodayTxt">XP hari ini: 0 / 100</p>
-                <p class="dash-note-txt">Roadmap ini disusun dari progresmu: pengucapan masih jadi titik terlemahmu minggu ini, jadi latihan shadowing muncul lagi hari ini. Klik kotak centang setelah selesai mengerjakan — di versi produksi, statusnya dicatat otomatis dari aktivitasmu.</p>
+                <p class="dash-note-txt">Ini titik awalmu: empat langkah pertama untuk memulai dari nol di Bahasa Inggris Level A1. Belum ada yang selesai — centang tugas setelah kamu mengerjakannya, dan XP-mu mulai terisi dari sini.</p>
               </div>
             </div>
 
@@ -1437,19 +1435,19 @@
               <a class="q-card" href="#/percakapan">
                 <span class="ic" style="background:var(--teal-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
                 <h4>Percakapan AI</h4>
-                <p>Ngobrol dengan tutor AI — topik hari ini “Di Restoran”, lengkap dengan koreksi &amp; skor per giliran.</p>
+                <p>Ngobrol dengan tutor AI — mulai dari topik “Perkenalan Diri”, lengkap dengan koreksi &amp; skor per giliran.</p>
                 <span class="arr">Mulai ngobrol →</span>
               </a>
               <a class="q-card" href="#/demo">
                 <span class="ic" style="background:var(--amber-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
                 <h4>Coba Pelajaran</h4>
-                <p>Lanjutkan pelajaran terpandu 4 langkah: dengar, pilih arti, susun kalimat, lalu ucapkan.</p>
+                <p>Pelajaran terpandu 4 langkah pertamamu: dengar, pilih arti, susun kalimat, lalu ucapkan.</p>
                 <span class="arr">Buka pelajaran →</span>
               </a>
               <a class="q-card" href="#/jalur-kerja">
                 <span class="ic" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
                 <h4>Jalur Kerja</h4>
-                <p>Jalur SSW Jepang tetap di jalurnya: target JLPT N4 dan kosakata vokasional kaigo &amp; manufaktur.</p>
+                <p>Jalur khusus kerja ke luar negeri: target ujian resmi (JLPT, EPS-TOPIK, Goethe) dan kosakata vokasional bidang kerjamu.</p>
                 <span class="arr">Lihat jalur kerja →</span>
               </a>
             </div>
@@ -2143,12 +2141,12 @@
         if((state.pending && !state.verified) || currentRoute().page === "dashboard") syncAccount();
       }, 20000);
 
-      /* ---------- Dashboard (setelah login — data contoh, simulasi lokal) ---------- */
+      /* ---------- Dashboard (setelah login — state awal user baru: semua nol) ---------- */
       var DASH_TASKS = [
-        { t:"Sesi Percakapan AI — Topik “Di Restoran”", s:"Bahasa Jepang · ±10 menit · target skor 85+", xp:40, href:"#/percakapan", go:"Mulai →", done:false },
-        { t:"Pelajaran Kosakata — Unit 5: Di Stasiun", s:"15 kata baru · jalur A2 menuju B1", xp:25, href:"#/demo", go:"Buka →", done:true },
-        { t:"Latihan Pengucapan — Shadowing “Memesan Makanan”", s:"Lanjutan sesi kemarin · titik terlemahmu minggu ini", xp:20, href:"#/demo", go:"Latih →", done:false },
-        { t:"Review Kosakata SRS — 38 kartu jatuh tempo", s:"Pengulangan terjadwal agar tidak lupa", xp:15, href:"#/demo", go:"Review →", done:false }
+        { t:"Ikuti Tes Penempatan Singkat", s:"Bahasa Inggris · ±5 menit · memastikan titik awalmu di A1", xp:10, href:"#/level", go:"Mulai →", done:false },
+        { t:"Pelajaran Pertama — Perkenalan Diri (Unit 1)", s:"Bahasa Inggris · Level A1 · ±10 menit", xp:40, href:"#/demo", go:"Mulai →", done:false },
+        { t:"Sesi Percakapan AI — Topik “Perkenalan Diri”", s:"Bahasa Inggris · latihan bicara pertamamu dengan tutor AI", xp:30, href:"#/percakapan", go:"Mulai →", done:false },
+        { t:"Kosakata Dasar — 10 Kata & Frasa Pertama", s:"Bahasa Inggris · sapaan dan perkenalan sehari-hari", xp:20, href:"#/demo", go:"Buka →", done:false }
       ];
       var LOCK_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
       var LOCK_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.7-1.6"/></svg>';
