@@ -1824,7 +1824,12 @@
             '<div class="mic-wrap"><button type="button" class="mic-btn" id="micBtn" aria-label="Mulai merekam ucapan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></button><span id="micState" style="font-size:13.5px;color:var(--ink-3);font-weight:600">'+(srSupported ? "Ketuk untuk mulai merekam" : "Browser ini tidak mendukung pengenalan suara")+'</span></div>'+
             '<div id="scoreOut"></div>';
           var mb = document.getElementById("micBtn"), ms = document.getElementById("micState"), out = document.getElementById("scoreOut");
-          var listening = false, gotResult = false;
+          var listening = false, gotResult = false, activeRec = null, lastTranscript = "", uiDone = false;
+          function resetMicUI(){
+            listening = false; activeRec = null;
+            mb.classList.remove("rec");
+            mb.setAttribute("aria-label", "Mulai merekam ucapan");
+          }
           function escHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
           function tokenize(str){
             /* Kembalikan token {disp, norm}: abaikan kapitalisasi & tanda baca.
@@ -1838,7 +1843,7 @@
             }).filter(function(t){ return t.norm.length > 0; });
           }
           function showSpeakError(msg){
-            listening = false; mb.classList.remove("rec");
+            resetMicUI(); uiDone = true;
             ms.textContent = "Rekaman berhenti.";
             out.innerHTML = '<div class="feedback no" style="display:block">'+msg+'</div>'+
               '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Lagi</button></div>';
@@ -1884,47 +1889,74 @@
             }
             var rec;
             try{ rec = new SRClass(); }catch(e){ showSpeakError("Pengenalan suara gagal dimulai di browser ini. Coba buka halaman ini di Chrome atau Edge."); return; }
-            gotResult = false;
+            gotResult = false; lastTranscript = ""; uiDone = false;
             rec.lang = d.tts;
-            rec.interimResults = false;
+            rec.interimResults = true;
             rec.maxAlternatives = 1;
             try{ rec.continuous = false; }catch(e){}
+            activeRec = rec;
             listening = true;
             mb.classList.add("rec");
-            ms.textContent = "Mendengarkan… ucapkan kalimatnya sekarang";
+            mb.setAttribute("aria-label", "Berhenti merekam");
+            ms.textContent = "Mendengarkan… ucapkan kalimatnya sekarang · ketuk mikrofon lagi untuk berhenti";
             out.innerHTML = "";
             rec.onresult = function(ev){
-              var transcript = "";
-              try{ transcript = ev.results[0][0].transcript || ""; }catch(e){}
-              gotResult = true;
-              listening = false; mb.classList.remove("rec");
-              if(transcript.trim()){
+              if(activeRec && activeRec !== rec) return;
+              var finalT = "", interimT = "";
+              try{
+                for(var ri = 0; ri < ev.results.length; ri++){
+                  var rr = ev.results[ri];
+                  if(rr.isFinal) finalT += rr[0].transcript; else interimT += rr[0].transcript;
+                }
+              }catch(e){}
+              if(interimT) lastTranscript = interimT;
+              if(!finalT) return;
+              lastTranscript = finalT;
+              gotResult = true; uiDone = true;
+              resetMicUI();
+              if(finalT.trim()){
                 ms.textContent = "Selesai didengarkan — ini penilaianmu:";
-                showSpeakResult(transcript.trim());
+                showSpeakResult(finalT.trim());
               } else {
                 showSpeakError("Tidak terdengar ucapan — tekan mikrofon dan coba lagi.");
               }
             };
             rec.onerror = function(ev){
-              listening = false; mb.classList.remove("rec");
+              if(activeRec && activeRec !== rec) return;
+              resetMicUI();
               var err = (ev && ev.error) || "";
               if(err === "no-speech"){ showSpeakError("Tidak terdengar ucapan — tekan mikrofon dan coba lagi."); }
               else if(err === "not-allowed" || err === "service-not-allowed"){ showSpeakError("Izin mikrofon ditolak, jadi suaramu tidak bisa didengar. Izinkan akses mikrofon untuk situs ini di pengaturan browser-mu, lalu tekan Coba Lagi."); }
               else if(err === "audio-capture"){ showSpeakError("Tidak ditemukan mikrofon di perangkat ini. Sambungkan mikrofon, lalu tekan Coba Lagi."); }
               else if(err === "network"){ showSpeakError("Pengenalan suara di browser ini butuh koneksi internet. Periksa koneksimu, lalu tekan Coba Lagi."); }
-              else if(err === "aborted"){ ms.textContent = "Rekaman dibatalkan. Ketuk mikrofon untuk mencoba lagi."; }
+              else if(err === "aborted"){ uiDone = true; ms.textContent = "Rekaman dibatalkan. Ketuk mikrofon untuk mencoba lagi."; }
               else { showSpeakError("Pengenalan suara berhenti ("+(err || "tidak diketahui")+"). Tekan Coba Lagi untuk mengulang."); }
             };
             rec.onend = function(){
-              if(listening){ listening = false; mb.classList.remove("rec"); }
-              if(!gotResult && !out.innerHTML){
+              if(activeRec && activeRec !== rec) return;
+              resetMicUI();
+              if(uiDone || gotResult) return;
+              uiDone = true;
+              if(lastTranscript && lastTranscript.trim()){
+                gotResult = true;
+                ms.textContent = "Selesai didengarkan — ini penilaianmu:";
+                showSpeakResult(lastTranscript.trim());
+              } else {
                 showSpeakError("Tidak terdengar ucapan — tekan mikrofon dan coba lagi.");
               }
             };
             try{ rec.start(); }
-            catch(e){ listening = false; mb.classList.remove("rec"); showSpeakError("Pengenalan suara gagal dimulai. Tekan Coba Lagi, atau buka halaman ini di Chrome/Edge."); }
+            catch(e){ resetMicUI(); showSpeakError("Pengenalan suara gagal dimulai. Tekan Coba Lagi, atau buka halaman ini di Chrome/Edge."); }
           }
-          mb.addEventListener("click", startRec);
+          function toggleRec(){
+            if(listening){
+              ms.textContent = "Menghentikan rekaman…";
+              if(activeRec){ try{ activeRec.stop(); }catch(e){ try{ activeRec.abort(); }catch(e2){} } }
+              return;
+            }
+            startRec();
+          }
+          mb.addEventListener("click", toggleRec);
         }
       }
       renderDemo();
