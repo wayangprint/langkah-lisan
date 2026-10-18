@@ -273,6 +273,9 @@
       .score-row .track{height:8px;background:var(--bg-soft);border-radius:99px;overflow:hidden}
       .score-row .fill{height:100%;background:var(--good);border-radius:99px}
       .score-row .v{text-align:right;font-weight:700}
+      .word-hl{font-size:19px;line-height:1.75;font-weight:700;margin-top:2px}
+      .word-hl .w-ok{color:var(--good)}
+      .word-hl .w-bad{color:var(--coral);text-decoration:line-through;text-decoration-thickness:2px;text-underline-offset:3px}
       .feedback{margin-top:14px;font-size:14.5px;border-radius:11px;padding:11px 14px;display:none}
       .feedback.ok{display:block;background:var(--good-soft);color:var(--ink)}
       .feedback.no{display:block;background:var(--bad-soft);color:var(--ink)}
@@ -1810,30 +1813,118 @@
           });
         }
         else {
-          var s = d.speakScore;
+          /* Langkah 4: penilaian sungguhan via Web Speech API (client-side, tanpa API key).
+             Skor = akurasi kata: kata target yang terucap benar / total kata target x 100. */
+          var SRClass = window.SpeechRecognition || window.webkitSpeechRecognition;
+          var srSupported = !!SRClass;
           bodyEl.innerHTML =
             '<div class="demo-kicker">Langkah 4 dari 4 · Berbicara</div>'+
             '<div class="demo-q">'+d.phrase+'<span class="romaji">'+d.phraseRomaji+'</span></div>'+
-            '<p class="demo-hint">Tekan tombol mikrofon dan ucapkan kalimat di atas. (Dalam demo ini skor ditampilkan sebagai contoh hasil penilaian.)</p>'+
-            '<div class="mic-wrap"><button type="button" class="mic-btn" id="micBtn" aria-label="Mulai merekam ucapan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></button><span id="micState" style="font-size:13.5px;color:var(--ink-3);font-weight:600">Ketuk untuk mulai merekam</span></div>'+
+            '<p class="demo-hint">Tekan tombol mikrofon dan ucapkan kalimat di atas. Skor dihitung dari hasil pengenalan suara di browser-mu — ucapkan kalimat target, lalu kata-katamu dibandingkan kata per kata dengan kalimat itu.</p>'+
+            '<div class="mic-wrap"><button type="button" class="mic-btn" id="micBtn" aria-label="Mulai merekam ucapan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></button><span id="micState" style="font-size:13.5px;color:var(--ink-3);font-weight:600">'+(srSupported ? "Ketuk untuk mulai merekam" : "Browser ini tidak mendukung pengenalan suara")+'</span></div>'+
             '<div id="scoreOut"></div>';
-          var mb = document.getElementById("micBtn"), ms = document.getElementById("micState");
-          mb.addEventListener("click", function(){
-            if(mb.classList.contains("rec")) return;
-            mb.classList.add("rec"); ms.textContent = "Mendengarkan… ucapkan sekarang";
-            speak(d.phrase);
-            setTimeout(function(){
-              mb.classList.remove("rec"); ms.textContent = "Rekaman selesai — ini penilaianmu:";
-              document.getElementById("scoreOut").innerHTML =
-                '<div class="score-box"><div class="score-head"><span class="big">'+s.total+'</span><span style="font-weight:700">/ 100 · Skor pengucapan</span></div>'+
-                [["Akurasi",s.akurasi],["Kelancaran",s.kelancaran],["Intonasi",s.intonasi]].map(function(r){
-                  return '<div class="score-row"><span>'+r[0]+'</span><span class="track"><span class="fill" style="display:block;width:'+r[1]+'%"></span></span><span class="v">'+r[1]+"</span></div>";
-                }).join("")+
-                '<p style="font-size:14px;margin-top:12px;color:var(--ink-2)">'+d.speakTip+'</p></div>'+
-                '<div class="demo-actions"><button type="button" class="btn btn-amber" id="againBtn">Ulangi dari Awal</button><a class="btn btn-ghost" href="#/harga">Lihat Paket Belajar</a></div>';
-              document.getElementById("againBtn").addEventListener("click", function(){ step = 0; renderDemo(); window.scrollTo({top:0, behavior:"smooth"}); });
-            }, 2100);
-          });
+          var mb = document.getElementById("micBtn"), ms = document.getElementById("micState"), out = document.getElementById("scoreOut");
+          var listening = false, gotResult = false;
+          function escHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+          function tokenize(str){
+            /* Kembalikan token {disp, norm}: abaikan kapitalisasi & tanda baca.
+               Bahasa tanpa spasi antar kata (Jepang/Mandarin/Korea) dinilai per karakter. */
+            var raw = String(str || "");
+            if(/[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(raw)){
+              return raw.replace(/[\s\u3002\uff0e\uff01\uff1f!?\u3001\uff0c,\.\u2026\u00b7:\uff1a;\uff1b\u300c\u300d\u300e\u300f\uff08\uff09()\[\]"'\u201c\u201d\u2018\u2019]/g, "").split("").map(function(c){ return { disp:c, norm:c.toLowerCase() }; });
+            }
+            return raw.split(/\s+/).filter(Boolean).map(function(w){
+              return { disp:w, norm:w.toLowerCase().replace(/[^\p{L}\p{N}']/gu, "") };
+            }).filter(function(t){ return t.norm.length > 0; });
+          }
+          function showSpeakError(msg){
+            listening = false; mb.classList.remove("rec");
+            ms.textContent = "Rekaman berhenti.";
+            out.innerHTML = '<div class="feedback no" style="display:block">'+msg+'</div>'+
+              '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Lagi</button></div>';
+            document.getElementById("retryBtn").addEventListener("click", startRec);
+          }
+          function showSpeakResult(transcript){
+            var target = tokenize(d.phrase);
+            var heard = tokenize(transcript);
+            var pool = {};
+            heard.forEach(function(t){ pool[t.norm] = (pool[t.norm] || 0) + 1; });
+            var used = {}, hits = 0;
+            var marks = target.map(function(t){
+              var avail = (pool[t.norm] || 0) - (used[t.norm] || 0);
+              if(avail > 0){ used[t.norm] = (used[t.norm] || 0) + 1; hits++; return true; }
+              return false;
+            });
+            var score = target.length ? Math.round(hits / target.length * 100) : 0;
+            var joiner = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(d.phrase) ? "" : " ";
+            var hl = target.map(function(t, i){
+              return '<span class="'+(marks[i] ? "w-ok" : "w-bad")+'">'+escHtml(t.disp)+"</span>";
+            }).join(joiner);
+            var msg = score === 100
+              ? "Sempurna — semua " + target.length + " kata target terucap dengan benar."
+              : hits + " dari " + target.length + " kata target terucap benar. Kata yang terlewat atau belum tepat ditandai merah — coba ucapkan lagi dengan lebih pelan dan jelas.";
+            out.innerHTML =
+              '<div class="score-box">'+
+                '<p style="font-size:14.5px;margin:0 0 10px;color:var(--ink-2)">Kamu mengucapkan: &ldquo;'+escHtml(transcript)+'&rdquo;</p>'+
+                '<div class="score-head"><span class="big">'+score+'</span><span style="font-weight:700">/ 100 · Skor akurasi kata</span></div>'+
+                '<div class="score-row"><span>Akurasi kata</span><span class="track"><span class="fill" style="display:block;width:'+score+'%"></span></span><span class="v">'+score+'</span></div>'+
+                '<p style="font-size:13px;color:var(--ink-3);margin:14px 0 4px">Kalimat target — hijau: terucap benar · merah: terlewat/salah</p>'+
+                '<div class="word-hl">'+hl+'</div>'+
+                '<p style="font-size:14px;margin-top:12px;color:var(--ink-2)">'+msg+'</p>'+
+              '</div>'+
+              '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Ucapkan Lagi</button><button type="button" class="btn btn-amber" id="againBtn">Ulangi dari Awal</button><a class="btn btn-ghost" href="#/harga">Lihat Paket Belajar</a></div>';
+            document.getElementById("retryBtn").addEventListener("click", startRec);
+            document.getElementById("againBtn").addEventListener("click", function(){ step = 0; renderDemo(); window.scrollTo({top:0, behavior:"smooth"}); });
+          }
+          function startRec(){
+            if(listening) return;
+            if(!srSupported){
+              showSpeakError("Browser ini tidak mendukung pengenalan suara (Web Speech API), jadi ucapanmu belum bisa dinilai di sini. Buka halaman ini di <strong>Chrome</strong> atau <strong>Edge</strong> untuk latihan berbicara dengan penilaian suara sungguhan.");
+              return;
+            }
+            var rec;
+            try{ rec = new SRClass(); }catch(e){ showSpeakError("Pengenalan suara gagal dimulai di browser ini. Coba buka halaman ini di Chrome atau Edge."); return; }
+            gotResult = false;
+            rec.lang = d.tts;
+            rec.interimResults = false;
+            rec.maxAlternatives = 1;
+            try{ rec.continuous = false; }catch(e){}
+            listening = true;
+            mb.classList.add("rec");
+            ms.textContent = "Mendengarkan… ucapkan kalimatnya sekarang";
+            out.innerHTML = "";
+            rec.onresult = function(ev){
+              var transcript = "";
+              try{ transcript = ev.results[0][0].transcript || ""; }catch(e){}
+              gotResult = true;
+              listening = false; mb.classList.remove("rec");
+              if(transcript.trim()){
+                ms.textContent = "Selesai didengarkan — ini penilaianmu:";
+                showSpeakResult(transcript.trim());
+              } else {
+                showSpeakError("Tidak terdengar ucapan — tekan mikrofon dan coba lagi.");
+              }
+            };
+            rec.onerror = function(ev){
+              listening = false; mb.classList.remove("rec");
+              var err = (ev && ev.error) || "";
+              if(err === "no-speech"){ showSpeakError("Tidak terdengar ucapan — tekan mikrofon dan coba lagi."); }
+              else if(err === "not-allowed" || err === "service-not-allowed"){ showSpeakError("Izin mikrofon ditolak, jadi suaramu tidak bisa didengar. Izinkan akses mikrofon untuk situs ini di pengaturan browser-mu, lalu tekan Coba Lagi."); }
+              else if(err === "audio-capture"){ showSpeakError("Tidak ditemukan mikrofon di perangkat ini. Sambungkan mikrofon, lalu tekan Coba Lagi."); }
+              else if(err === "network"){ showSpeakError("Pengenalan suara di browser ini butuh koneksi internet. Periksa koneksimu, lalu tekan Coba Lagi."); }
+              else if(err === "aborted"){ ms.textContent = "Rekaman dibatalkan. Ketuk mikrofon untuk mencoba lagi."; }
+              else { showSpeakError("Pengenalan suara berhenti ("+(err || "tidak diketahui")+"). Tekan Coba Lagi untuk mengulang."); }
+            };
+            rec.onend = function(){
+              if(listening){ listening = false; mb.classList.remove("rec"); }
+              if(!gotResult && !out.innerHTML){
+                showSpeakError("Tidak terdengar ucapan — tekan mikrofon dan coba lagi.");
+              }
+            };
+            try{ rec.start(); }
+            catch(e){ listening = false; mb.classList.remove("rec"); showSpeakError("Pengenalan suara gagal dimulai. Tekan Coba Lagi, atau buka halaman ini di Chrome/Edge."); }
+          }
+          mb.addEventListener("click", startRec);
         }
       }
       renderDemo();
