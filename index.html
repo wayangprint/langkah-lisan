@@ -280,6 +280,19 @@
       .feedback.ok{display:block;background:var(--good-soft);color:var(--ink)}
       .feedback.no{display:block;background:var(--bad-soft);color:var(--ink)}
       .demo-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+      .demo-toprow{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+      .demo-toprow .demo-steps{flex:1;margin-bottom:0}
+      .hearts{display:flex;gap:4px;font-size:19px;line-height:1;flex:none}
+      .hearts .h{display:inline-block;transition:filter .3s ease,opacity .3s ease}
+      .hearts .h.lost{filter:grayscale(1);opacity:.3}
+      .hearts .h.pop{animation:hpop .55s ease}
+      @keyframes hpop{0%{transform:scale(1)}35%{transform:scale(1.5) rotate(-10deg)}100%{transform:scale(1)}}
+      @media (prefers-reduced-motion: reduce){.hearts .h.pop{animation:none}}
+      .path-badge{display:flex;gap:9px;align-items:flex-start;border-radius:12px;padding:11px 14px;font-size:14px;margin-top:14px;line-height:1.55}
+      .path-badge.fast{background:var(--amber-soft);border:1.5px dashed var(--amber)}
+      .path-badge.prac{background:var(--teal-soft);border:1.5px dashed var(--teal)}
+      .path-badge .tag{font-weight:800;white-space:nowrap}
+      .mini-note{font-size:13.5px;color:var(--ink-2);margin-top:10px;line-height:1.55}
 
       /* method & features */
       .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -928,7 +941,10 @@
             <p class="sub">Empat langkah dalam ±3 menit: dengarkan penutur asli, pilih arti, susun kalimat, lalu ucapkan dan terima skor pengucapan per aspek. Pilih bahasanya:</p>
             <div class="demo-langs" role="group" aria-label="Pilih bahasa demo" id="demoLangs"></div>
             <div class="demo-card">
-              <div class="demo-steps" id="demoSteps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+              <div class="demo-toprow">
+                <div class="demo-steps" id="demoSteps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+                <div class="hearts" id="demoHearts" role="img" aria-label="Nyawa tersisa: 3 dari 3"></div>
+              </div>
               <div id="demoBody"></div>
             </div>
           </div>
@@ -1644,6 +1660,7 @@
           phrase:"Where is the train station?", phraseRomaji:"Kalimat tanya paling berguna saat pertama tiba di negara baru.",
           meaning:"Di mana stasiun kereta?", wrongMeanings:["Berapa harga tiket kereta?","Kereta jam berapa berangkat?"],
           wordOrder:["Where","is","the train","station?"],
+          speakAlt:{phrase:"Excuse me, could you tell me where the train station is?", note:"Versi lebih panjang dan sopan — kalimat tanya tak langsung (indirect question) dengan “could you tell me”."},
           speakScore:{total:91, akurasi:93, kelancaran:88, intonasi:92},
           speakTip:"Intonasi naik di akhir kalimat tanya — kamu sudah melakukannya dengan baik." },
         jepang:{ label:"Jepang", tts:"ja-JP", unit:"Unit 1 · Bertanya Arah",
@@ -1651,6 +1668,7 @@
           phrase:"駅はどこですか。", phraseRomaji:"Eki wa doko desu ka — pola tanya sopan (〜はどこですか).",
           meaning:"Stasiunnya di mana?", wrongMeanings:["Kereta jam berapa berangkat?","Berapa harga tiket ke stasiun?"],
           wordOrder:["駅は","どこ","ですか"],
+          speakAlt:{phrase:"すみません、駅はどこにありますか。", note:"Sumimasen, eki wa doko ni arimasu ka — versi lebih lengkap memakai pola 〜はどこにありますか."},
           speakScore:{total:86, akurasi:84, kelancaran:89, intonasi:85},
           speakTip:"Bunyi /tsu/ pada 「つ」 masih terdengar seperti /su/ — drill 2 menit disiapkan untukmu." },
         mandarin:{ label:"Mandarin", tts:"zh-CN", unit:"Unit 1 · Bertanya Arah",
@@ -1658,6 +1676,7 @@
           phrase:"车站在哪里？", phraseRomaji:"Chēzhàn zài nǎlǐ? — nada ketiga pada 哪 (nǎ) jangan sampai datar.",
           meaning:"Stasiunnya di mana?", wrongMeanings:["Berapa ongkos ke stasiun?","Kereta ini menuju ke mana?"],
           wordOrder:["车站","在","哪里？"],
+          speakAlt:{phrase:"请问，火车站在哪里？", note:"Qǐngwèn, huǒchēzhàn zài nǎlǐ? — versi lebih lengkap dengan 请问 di depan dan 火车站 (stasiun kereta api)."},
           speakScore:{total:83, akurasi:81, kelancaran:86, intonasi:82},
           speakTip:"Nada pada 里 (lǐ) perlu lebih menurun-naik; intonasi kalimat tanyamu sudah tepat." },
         korea:{ label:"Korea", tts:"ko-KR", unit:"Unit 1 · Bertanya Arah",
@@ -1665,6 +1684,7 @@
           phrase:"역이 어디예요?", phraseRomaji:"Yeogi eodiyeyo? — bentuk sopan informal (해요체).",
           meaning:"Stasiunnya di mana?", wrongMeanings:["Kereta ini berhenti di mana?","Berapa lama sampai stasiun?"],
           wordOrder:["역이","어디","예요?"],
+          speakAlt:{phrase:"실례합니다, 기차역이 어디예요?", note:"Sillyehamnida, gichayeogi eodiyeyo? — versi lebih lengkap dengan salam sopan dan kata 기차역 (stasiun kereta)."},
           speakScore:{total:88, akurasi:87, kelancaran:90, intonasi:86},
           speakTip:"Pengucapan 받침 pada 역 sudah jelas. Pertahankan tempo bicaramu!" },
         jerman:{ label:"Jerman", tts:"de-DE", unit:"Unit 1 · Bertanya Arah",
@@ -1672,6 +1692,7 @@
           phrase:"Wo ist der Bahnhof?", phraseRomaji:"Dalam kalimat tanya, kata kerja (ist) selalu di posisi kedua.",
           meaning:"Di mana stasiun kereta?", wrongMeanings:["Kereta jam berapa berangkat?","Di mana saya membeli tiket?"],
           wordOrder:["Wo","ist","der","Bahnhof?"],
+          speakAlt:{phrase:"Entschuldigung, können Sie mir sagen, wo der Bahnhof ist?", note:"Versi lebih panjang dan sopan — kalimat tanya tak langsung; kata kerja “ist” pindah ke akhir anak kalimat."},
           speakScore:{total:89, akurasi:90, kelancaran:87, intonasi:90},
           speakTip:"Bunyi “ch” pada Entschuldigung sudah hampir sempurna — lanjutkan!" }
       };
@@ -1680,6 +1701,68 @@
       var langsEl = document.getElementById("demoLangs");
       var bodyEl = document.getElementById("demoBody");
       var stepsEl = document.getElementById("demoSteps");
+      var heartsEl = document.getElementById("demoHearts");
+
+      /* --- Mekanik sesi ala Duolingo ---
+         hearts: 3 nyawa per sesi; salah di tantangan 1–3 (Uji Pemahaman,
+         Susun Kalimat) atau skor Berbicara < 60 mengurangi 1 nyawa.
+         firstTry/answered: pelacakan benar-di-percobaan-pertama per langkah
+         (ala numChallengesCorrect/Answered/Total).
+         mistakes: antrean langkah yang salah -> ditanya ulang di Putaran
+         Ulasan (ala mistakesReplacementChallenges).
+         fastTrack/practicePath: kesulitan adaptif (ala adaptiveChallenges),
+         diputuskan tepat saat memasuki langkah 4 Berbicara. */
+      var hearts = 3, heartLost = false;
+      var firstTry = {}, answered = {};
+      var mistakes = [];
+      var mode = "main"; /* main | review | out | done */
+      var reviewIdx = 0, reviewCleared = 0, reviewResults = {};
+      var fastTrack = false, practicePath = false, pathDecided = false;
+      var sessionStart = Date.now();
+
+      function resetSession(){
+        hearts = 3; heartLost = false;
+        firstTry = {}; answered = {};
+        mistakes = [];
+        mode = "main"; reviewIdx = 0; reviewCleared = 0; reviewResults = {};
+        fastTrack = false; practicePath = false; pathDecided = false;
+        sessionStart = Date.now();
+        step = 0; picked = [];
+      }
+      function renderHearts(){
+        if(!heartsEl) return;
+        var html = "";
+        for(var i=0;i<3;i++){
+          var lost = i >= hearts;
+          html += '<span class="h'+(lost ? " lost" : "")+((lost && heartLost && i === hearts) ? " pop" : "")+'" aria-hidden="true">❤️</span>';
+        }
+        heartsEl.innerHTML = html;
+        heartsEl.setAttribute("aria-label", "Nyawa tersisa: "+hearts+" dari 3");
+        heartLost = false;
+      }
+      function loseHeart(){
+        if(hearts > 0){ hearts--; heartLost = true; renderHearts(); }
+      }
+      function gradeMain(s, ok){
+        if(answered[s]) return;
+        answered[s] = true;
+        firstTry[s] = !!ok;
+        if(!ok){
+          if(mistakes.indexOf(s) === -1) mistakes.push(s);
+          loseHeart();
+        }
+      }
+      function advanceReview(){
+        reviewIdx++;
+        if(reviewIdx >= mistakes.length) mode = "done";
+        renderDemo();
+      }
+      function backLink(){
+        var logged = (typeof state !== "undefined" && state && state.user);
+        return logged
+          ? '<a class="btn btn-ghost" href="#/dashboard">Kembali ke Dashboard</a>'
+          : '<a class="btn btn-ghost" href="#/">Kembali ke Beranda</a>';
+      }
 
       langKeys.forEach(function(k){
         var b = document.createElement("button");
@@ -1687,16 +1770,16 @@
         b.setAttribute("aria-pressed", k===curLang ? "true" : "false");
         b.setAttribute("data-lang", k);
         b.addEventListener("click", function(){
-          curLang = k; step = 0; picked = [];
+          curLang = k; resetSession();
           langsEl.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", x.getAttribute("data-lang")===k ? "true" : "false"); });
           renderDemo();
         });
         langsEl.appendChild(b);
       });
 
-      function setSteps(){
+      function setSteps(s){
         stepsEl.querySelectorAll("i").forEach(function(el,i){
-          el.className = i < step ? "done" : (i === step ? "on" : "");
+          el.className = i < s ? "done" : (i === s ? "on" : "");
         });
       }
       function speak(text){
@@ -1722,10 +1805,14 @@
       }
 
       function renderDemo(){
-        setSteps();
         var d = DEMO[curLang];
         picked = [];
-        if(step === 0){
+        renderHearts();
+        if(mode === "out"){ setSteps(step); renderOut(); return; }
+        if(mode === "done"){ setSteps(4); renderRecap(); return; }
+        var s = (mode === "review") ? mistakes[reviewIdx] : step;
+        setSteps(s);
+        if(s === 0){
           bodyEl.innerHTML =
             '<div class="demo-kicker">Langkah 1 dari 4 · Dengarkan — '+d.unit+'</div>'+
             '<div class="demo-q">'+d.listenWord+'<span class="romaji">'+d.listenRomaji+'</span></div>'+
@@ -1740,13 +1827,15 @@
           });
           document.getElementById("demoNext").addEventListener("click", function(){ step = 1; renderDemo(); });
         }
-        else if(step === 1){
+        else if(s === 1){
           var opts = [{t:d.meaning, ok:true}].concat(d.wrongMeanings.map(function(w){ return {t:w, ok:false}; }));
           opts = opts.map(function(o,i){ return [Math.sin(i*7+curLang.length), o]; }).sort(function(a,b){ return a[0]-b[0]; }).map(function(x){ return x[1]; });
+          var inRev1 = (mode === "review");
           bodyEl.innerHTML =
-            '<div class="demo-kicker">Langkah 2 dari 4 · Uji Pemahaman</div>'+
+            '<div class="demo-kicker">'+(inRev1 ? 'Putaran Ulasan · Item '+(reviewIdx+1)+' dari '+mistakes.length+' · Uji Pemahaman' : 'Langkah 2 dari 4 · Uji Pemahaman')+'</div>'+
             '<div class="demo-q">'+d.phrase+'<span class="romaji">'+d.phraseRomaji+'</span></div>'+
             '<p class="demo-hint">Apa arti kalimat di atas?</p>'+
+            (inRev1 ? '<p class="mini-note">Putaran ulasan: nyawamu aman di sini — jawaban salah tidak mengurangi ❤. Jawab dengan benar untuk menuntaskan item ini.</p>' : '')+
             '<div class="opts" id="opts">'+ opts.map(function(o){ return '<button type="button" class="opt" data-ok="'+o.ok+'">'+o.t+"</button>"; }).join("") +"</div>"+
             '<div id="fb"></div><div id="nx"></div>';
           bodyEl.querySelectorAll(".opt").forEach(function(btn){
@@ -1754,26 +1843,42 @@
               var ok = btn.getAttribute("data-ok") === "true";
               bodyEl.querySelectorAll(".opt").forEach(function(x){ x.disabled = true; if(x.getAttribute("data-ok")==="true") x.classList.add("right"); });
               if(!ok) btn.classList.add("wrong");
-              document.getElementById("fb").innerHTML = feedback(ok,
-                ok ? "<strong>Benar!</strong> Kamu menangkap makna kalimat utuh, bukan kata per kata — itu tanda input-mu bekerja." :
-                     "<strong>Belum tepat.</strong> Jawaban yang benar ditandai hijau. Di aplikasi, kalimat ini otomatis masuk antrean review SRS-mu.");
-              document.getElementById("nx").innerHTML = nextBtn("Lanjut: Susun Kalimat");
-              document.getElementById("demoNext").addEventListener("click", function(){ step = 2; renderDemo(); });
+              if(inRev1){
+                if(ok){ reviewCleared++; reviewResults[1] = true; } else { reviewResults[1] = false; }
+                document.getElementById("fb").innerHTML = feedback(ok,
+                  ok ? "<strong>Tuntas!</strong> Kali ini benar — item ini sudah kamu kuasai. +5 XP ulasan untukmu." :
+                       "<strong>Masih belum tepat.</strong> Jawaban yang benar ditandai hijau di atas. Item ini kami tandai belum tuntas — tidak apa-apa, pola ini akan muncul lagi di review SRS-mu.");
+                document.getElementById("nx").innerHTML = nextBtn(reviewIdx < mistakes.length-1 ? "Lanjut Ulasan" : "Selesai — Lihat Rekap");
+                document.getElementById("demoNext").addEventListener("click", advanceReview);
+              } else {
+                gradeMain(1, ok);
+                document.getElementById("fb").innerHTML = feedback(ok,
+                  ok ? "<strong>Benar!</strong> Kamu menangkap makna kalimat utuh, bukan kata per kata — itu tanda input-mu bekerja." :
+                       "<strong>Belum tepat.</strong> Jawaban yang benar ditandai hijau. Kalimat ini masuk antrean Putaran Ulasan di akhir sesi, dan nyawamu berkurang 1 — tersisa "+hearts+" dari 3.");
+                document.getElementById("nx").innerHTML = nextBtn(hearts <= 0 ? "Lanjut" : "Lanjut: Susun Kalimat");
+                document.getElementById("demoNext").addEventListener("click", function(){
+                  if(hearts <= 0){ mode = "out"; renderDemo(); return; }
+                  step = 2; renderDemo();
+                });
+              }
             });
           });
         }
-        else if(step === 2){
+        else if(s === 2){
           var shuffled = d.wordOrder.slice();
           for(var i=shuffled.length-1;i>0;i--){ var j = Math.floor(Math.random()*(i+1)); var t = shuffled[i]; shuffled[i]=shuffled[j]; shuffled[j]=t; }
           if(shuffled.join("|") === d.wordOrder.join("|")) shuffled.reverse();
+          var inRev2 = (mode === "review");
           bodyEl.innerHTML =
-            '<div class="demo-kicker">Langkah 3 dari 4 · Produksi</div>'+
+            '<div class="demo-kicker">'+(inRev2 ? 'Putaran Ulasan · Item '+(reviewIdx+1)+' dari '+mistakes.length+' · Produksi' : 'Langkah 3 dari 4 · Produksi')+'</div>'+
             '<div class="demo-q">Susun kalimat: “'+d.meaning+'”</div>'+
             '<p class="demo-hint">Ketuk potongan kata di bawah ini sesuai urutan yang benar. Ketuk lagi potongan di kotak jawaban untuk membatalkan.</p>'+
+            (inRev2 ? '<p class="mini-note">Putaran ulasan: nyawamu aman di sini — susunan pertamamu di putaran ini yang menentukan tuntas atau belum.</p>' : '')+
             '<div class="chips-answer" id="ansBox"><span style="font-size:13px;color:var(--ink-3)" id="ansHint">Jawabanmu akan tersusun di sini…</span></div>'+
             '<div class="chips-pool" id="pool">'+ shuffled.map(function(w,i){ return '<button type="button" class="chip" data-w="'+w+'" data-i="'+i+'">'+w+"</button>"; }).join("") +"</div>"+
             '<div id="fb"></div><div id="nx"></div>';
           var ansBox = document.getElementById("ansBox");
+          var decided2 = false;
           function refreshAns(){
             var hint = document.getElementById("ansHint");
             if(hint) hint.remove();
@@ -1791,16 +1896,37 @@
             });
           }
           function checkOrder(){
+            if(inRev2 && decided2) return;
             document.getElementById("fb").innerHTML = "";
             document.getElementById("nx").innerHTML = "";
             if(picked.length === d.wordOrder.length){
               var ok = picked.every(function(p,idx){ return p.w === d.wordOrder[idx]; });
+              if(inRev2){
+                decided2 = true;
+                bodyEl.querySelectorAll("#pool .chip").forEach(function(c){ c.disabled = true; });
+                ansBox.querySelectorAll(".chip").forEach(function(c){ c.disabled = true; });
+                if(ok){ reviewCleared++; reviewResults[2] = true; } else { reviewResults[2] = false; }
+                document.getElementById("fb").innerHTML = feedback(ok,
+                  ok ? "<strong>Tuntas!</strong> Urutanmu benar kali ini — pola kalimat ini sudah menempel. +5 XP ulasan untukmu." :
+                       "<strong>Urutan belum tepat.</strong> Urutan yang benar: “"+d.wordOrder.join(" ")+"”. Item ini ditandai belum tuntas — pola ini akan di-drill lagi di review SRS-mu.");
+                document.getElementById("nx").innerHTML = nextBtn(reviewIdx < mistakes.length-1 ? "Lanjut Ulasan" : "Selesai — Lihat Rekap");
+                document.getElementById("demoNext").addEventListener("click", advanceReview);
+                return;
+              }
+              var firstAttempt2 = !answered[2];
+              gradeMain(2, ok);
               document.getElementById("fb").innerHTML = feedback(ok,
                 ok ? "<strong>Tepat!</strong> Urutan katamu benar — produksi aktif seperti ini yang mengunci grammar ke ingatan jangka panjang." :
-                     "<strong>Urutan belum tepat.</strong> Urutan yang benar: “"+d.wordOrder.join(" ")+"”. Coba lagi — di aplikasi, pola ini akan di-drill sampai otomatis.");
+                     "<strong>Urutan belum tepat.</strong> Urutan yang benar: “"+d.wordOrder.join(" ")+"”. Coba lagi — langkah ini masuk antrean Putaran Ulasan di akhir sesi"+(firstAttempt2 ? ", dan nyawamu berkurang 1 — tersisa "+hearts+" dari 3." : "."));
               if(ok){
                 document.getElementById("nx").innerHTML = nextBtn("Lanjut: Ucapkan Kalimatnya");
-                document.getElementById("demoNext").addEventListener("click", function(){ step = 3; renderDemo(); });
+                document.getElementById("demoNext").addEventListener("click", function(){
+                  if(hearts <= 0){ mode = "out"; renderDemo(); return; }
+                  step = 3; renderDemo();
+                });
+              } else if(hearts <= 0){
+                document.getElementById("nx").innerHTML = nextBtn("Lanjut");
+                document.getElementById("demoNext").addEventListener("click", function(){ mode = "out"; renderDemo(); });
               }
             }
           }
@@ -1814,17 +1940,54 @@
         }
         else {
           /* Langkah 4: penilaian sungguhan via Web Speech API (client-side, tanpa API key).
-             Skor = akurasi kata: kata target yang terucap benar / total kata target x 100. */
+             Skor = akurasi kata: kata target yang terucap benar / total kata target x 100.
+             Kesulitan adaptif diputuskan tepat di sini, saat memasuki langkah 4:
+             langkah 1 & 2 benar di percobaan pertama -> Jalur Cepat (kalimat
+             alternatif yang lebih sulit + bonus 5 XP); 2+ kesalahan -> Jalur
+             Latihan (kalimat standar + pesan penguat). */
+          if(mode === "main" && !pathDecided){
+            pathDecided = true;
+            fastTrack = !!firstTry[1] && !!firstTry[2];
+            practicePath = !fastTrack && mistakes.length >= 2;
+          }
+          var speakTarget = fastTrack ? d.speakAlt : { phrase:d.phrase, note:d.phraseRomaji };
+          var inRev3 = (mode === "review");
+          var badge3 = "";
+          if(inRev3) badge3 = '<p class="mini-note">Putaran ulasan: nyawamu aman di sini — skor 60 ke atas menuntaskan item ini.</p>';
+          else if(fastTrack) badge3 = '<div class="path-badge fast"><span class="tag">Jalur Cepat 🚀</span><span>Dua tantangan pertama kamu jawab benar tanpa satu pun salah — jadi kalimat Berbicara kali ini ditingkatkan ke versi yang lebih menantang. Selesaikan sesi ini dan bonus +5 XP jadi milikmu!</span></div>';
+          else if(practicePath) badge3 = '<div class="path-badge prac"><span class="tag">Jalur Latihan 💪</span><span>Tidak apa-apa, namanya juga sedang belajar! Kita pakai kalimat standar dulu — dan setelah langkah ini, Putaran Ulasan akan membantumu menguatkan bagian yang belum mantap.</span></div>';
           var SRClass = window.SpeechRecognition || window.webkitSpeechRecognition;
           var srSupported = !!SRClass;
           bodyEl.innerHTML =
-            '<div class="demo-kicker">Langkah 4 dari 4 · Berbicara</div>'+
-            '<div class="demo-q">'+d.phrase+'<span class="romaji">'+d.phraseRomaji+'</span></div>'+
+            '<div class="demo-kicker">'+(inRev3 ? 'Putaran Ulasan · Item '+(reviewIdx+1)+' dari '+mistakes.length+' · Berbicara' : 'Langkah 4 dari 4 · Berbicara')+'</div>'+
+            '<div class="demo-q">'+speakTarget.phrase+'<span class="romaji">'+speakTarget.note+'</span></div>'+
+            badge3+
             '<p class="demo-hint">Tekan tombol mikrofon dan ucapkan kalimat di atas. Skor dihitung dari hasil pengenalan suara di browser-mu — ucapkan kalimat target, lalu kata-katamu dibandingkan kata per kata dengan kalimat itu.</p>'+
             '<div class="mic-wrap"><button type="button" class="mic-btn" id="micBtn" aria-label="Mulai merekam ucapan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></button><span id="micState" style="font-size:13.5px;color:var(--ink-3);font-weight:600">'+(srSupported ? "Ketuk untuk mulai merekam" : "Browser ini tidak mendukung pengenalan suara")+'</span></div>'+
             '<div id="scoreOut"></div>';
           var mb = document.getElementById("micBtn"), ms = document.getElementById("micState"), out = document.getElementById("scoreOut");
           var listening = false, gotResult = false, activeRec = null, lastTranscript = "", uiDone = false;
+          var speakCleared = false;
+          function proceedAfterSpeak(){
+            if(hearts <= 0){ mode = "out"; renderDemo(); return; }
+            if(mistakes.length){ mode = "review"; reviewIdx = 0; renderDemo(); }
+            else { mode = "done"; renderDemo(); }
+          }
+          function skipSpeak(){
+            /* Jalan keluar bila pengenalan suara tidak bisa dipakai: langkah
+               dicatat sebagai sudah dijawab (belum benar) tanpa mengurangi
+               nyawa, lalu alur tetap berjalan. */
+            if(mode === "review"){
+              if(!speakCleared) reviewResults[3] = false;
+              advanceReview();
+            } else {
+              if(!answered[3]){
+                answered[3] = true; firstTry[3] = false;
+                if(mistakes.indexOf(3) === -1) mistakes.push(3);
+              }
+              proceedAfterSpeak();
+            }
+          }
           function resetMicUI(){
             listening = false; activeRec = null;
             mb.classList.remove("rec");
@@ -1846,11 +2009,12 @@
             resetMicUI(); uiDone = true;
             ms.textContent = "Rekaman berhenti.";
             out.innerHTML = '<div class="feedback no" style="display:block">'+msg+'</div>'+
-              '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Lagi</button></div>';
+              '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Lagi</button><button type="button" class="btn btn-ghost" id="skipBtn">Lewati Langkah Ini</button></div>';
             document.getElementById("retryBtn").addEventListener("click", startRec);
+            document.getElementById("skipBtn").addEventListener("click", skipSpeak);
           }
           function showSpeakResult(transcript){
-            var target = tokenize(d.phrase);
+            var target = tokenize(speakTarget.phrase);
             var heard = tokenize(transcript);
             var pool = {};
             heard.forEach(function(t){ pool[t.norm] = (pool[t.norm] || 0) + 1; });
@@ -1861,13 +2025,30 @@
               return false;
             });
             var score = target.length ? Math.round(hits / target.length * 100) : 0;
-            var joiner = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(d.phrase) ? "" : " ";
+            var joiner = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(speakTarget.phrase) ? "" : " ";
             var hl = target.map(function(t, i){
               return '<span class="'+(marks[i] ? "w-ok" : "w-bad")+'">'+escHtml(t.disp)+"</span>";
             }).join(joiner);
             var msg = score === 100
               ? "Sempurna — semua " + target.length + " kata target terucap dengan benar."
               : hits + " dari " + target.length + " kata target terucap benar. Kata yang terlewat atau belum tepat ditandai merah — coba ucapkan lagi dengan lebih pelan dan jelas.";
+            /* Penilaian sesi: di putaran utama, percobaan berskor pertama yang
+               menentukan benar/salah (skor < 60 = salah -> antrean ulasan +
+               nyawa -1). Di Putaran Ulasan, skor >= 60 menuntaskan item. */
+            if(!inRev3 && !answered[3]) gradeMain(3, score >= 60);
+            if(inRev3 && score >= 60 && !speakCleared){ speakCleared = true; reviewCleared++; reviewResults[3] = true; }
+            var actionsHtml;
+            if(inRev3){
+              if(score >= 60){
+                actionsHtml = '<div class="demo-actions"><button type="button" class="btn btn-amber" id="speakNext">'+(reviewIdx < mistakes.length-1 ? "Lanjut Ulasan" : "Selesai — Lihat Rekap")+'</button></div>';
+              } else {
+                actionsHtml = '<p class="mini-note" style="margin-top:14px">Skor di bawah 60 — item ini ditandai <strong>belum tuntas</strong>. Kalimat yang benar adalah kalimat target di atas (hijau = terucap benar, merah = terlewat/salah). Kamu boleh mencoba sekali lagi, atau lanjut — pola ini akan muncul lagi di review SRS-mu.</p>'+
+                  '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Ucapkan Lagi</button><button type="button" class="btn btn-ghost" id="hearBtn">Dengarkan Kalimat yang Benar</button><button type="button" class="btn btn-amber" id="speakNext">Lanjut</button></div>';
+              }
+            } else {
+              var proceedLabel = hearts <= 0 ? "Lanjut" : (mistakes.length ? "Lanjut: Putaran Ulasan" : "Selesai — Lihat Rekap");
+              actionsHtml = '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Ucapkan Lagi</button><button type="button" class="btn btn-amber" id="speakNext">'+proceedLabel+'</button></div>';
+            }
             out.innerHTML =
               '<div class="score-box">'+
                 '<p style="font-size:14.5px;margin:0 0 10px;color:var(--ink-2)">Kamu mengucapkan: &ldquo;'+escHtml(transcript)+'&rdquo;</p>'+
@@ -1877,9 +2058,20 @@
                 '<div class="word-hl">'+hl+'</div>'+
                 '<p style="font-size:14px;margin-top:12px;color:var(--ink-2)">'+msg+'</p>'+
               '</div>'+
-              '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Ucapkan Lagi</button><button type="button" class="btn btn-amber" id="againBtn">Ulangi dari Awal</button><a class="btn btn-ghost" href="#/harga">Lihat Paket Belajar</a></div>';
-            document.getElementById("retryBtn").addEventListener("click", startRec);
-            document.getElementById("againBtn").addEventListener("click", function(){ step = 0; renderDemo(); window.scrollTo({top:0, behavior:"smooth"}); });
+              actionsHtml;
+            var rtBtn = document.getElementById("retryBtn");
+            if(rtBtn) rtBtn.addEventListener("click", startRec);
+            var snBtn = document.getElementById("speakNext");
+            if(snBtn) snBtn.addEventListener("click", function(){
+              if(mode === "review"){
+                if(score < 60 && !speakCleared) reviewResults[3] = false;
+                advanceReview();
+              } else {
+                proceedAfterSpeak();
+              }
+            });
+            var hrBtn = document.getElementById("hearBtn");
+            if(hrBtn) hrBtn.addEventListener("click", function(){ speak(speakTarget.phrase.replace(/。/g,"")); });
           }
           function startRec(){
             if(listening) return;
@@ -1959,6 +2151,48 @@
           mb.addEventListener("click", toggleRec);
         }
       }
+      function renderOut(){
+        var fc = [1,2,3].filter(function(x){ return firstTry[x]; }).length;
+        bodyEl.innerHTML =
+          '<div class="demo-kicker">Sesi Berakhir</div>'+
+          '<div class="demo-q">Kehabisan Nyawa 💔</div>'+
+          '<p class="demo-hint">Tiga nyawamu habis di pelajaran ini — dan itu bukan kegagalan, itu bagian wajar dari proses belajar bahasa. Setiap kesalahan tadi justru menunjukkan bagian mana yang perlu dikuatkan.</p>'+
+          '<p class="demo-hint">Sejauh ini kamu menjawab benar di percobaan pertama pada <strong>'+fc+' dari 3 tantangan</strong>. Ulangi dari awal selagi ingatannya masih segar — biasanya percobaan kedua terasa jauh lebih mudah. Kamu pasti bisa!</p>'+
+          '<div class="demo-actions"><button type="button" class="btn btn-amber" id="outRetry">Coba Lagi dari Awal</button>'+backLink()+'</div>';
+        document.getElementById("outRetry").addEventListener("click", function(){ resetSession(); renderDemo(); });
+      }
+
+      function renderRecap(){
+        var fc = [1,2,3].filter(function(x){ return firstTry[x]; }).length;
+        var xpFirst = fc * 10;
+        var xpReview = reviewCleared * 5;
+        var xpBonus = fastTrack ? 5 : 0;
+        var xpTotal = xpFirst + xpReview + xpBonus;
+        var acc = Math.round(fc / 3 * 100);
+        var durSec = Math.max(1, Math.round((Date.now() - sessionStart) / 1000));
+        var durTxt = durSec >= 60 ? Math.floor(durSec/60) + " menit " + (durSec % 60) + " detik" : durSec + " detik";
+        var notCleared = mistakes.length - reviewCleared;
+        var streakMsg = acc === 100
+          ? "Sempurna — tanpa satu pun kesalahan di percobaan pertama! Streak-mu menyala terang hari ini; pertahankan ritme yang sama besok. 🔥"
+          : acc >= 67
+          ? "Kerja bagus! Satu pelajaran tuntas dan streak belajarmu berlanjut hari ini. Sedikit latihan setiap hari selalu mengalahkan belajar maraton sesekali. 🔥"
+          : "Kamu menyelesaikannya sampai akhir — dan konsistensi seperti inilah yang menjaga streak tetap hidup. Besok, coba naikkan akurasinya sedikit lagi, ya. 🔥";
+        bodyEl.innerHTML =
+          '<div class="demo-kicker">Rekap Sesi · '+DEMO[curLang].label+' — '+DEMO[curLang].unit+'</div>'+
+          '<div class="demo-q">Pelajaran Selesai! 🎉</div>'+
+          '<div class="score-box">'+
+            '<div class="score-head"><span class="big">+'+xpTotal+' XP</span><span style="font-weight:700">total XP sesi ini</span></div>'+
+            '<div class="score-row"><span>XP percobaan pertama</span><span class="track"><span class="fill" style="display:block;width:'+(fc/3*100)+'%"></span></span><span class="v">+'+xpFirst+'</span></div>'+
+            '<div class="score-row"><span>XP putaran ulasan</span><span class="track"><span class="fill" style="display:block;width:'+(mistakes.length ? (reviewCleared/mistakes.length*100) : 0)+'%"></span></span><span class="v">+'+xpReview+'</span></div>'+
+            (fastTrack ? '<div class="score-row"><span>Bonus Jalur Cepat 🚀</span><span class="track"><span class="fill" style="display:block;width:100%"></span></span><span class="v">+5</span></div>' : '')+
+            '<div class="score-row"><span>Akurasi</span><span class="track"><span class="fill" style="display:block;width:'+acc+'%"></span></span><span class="v">'+acc+'%</span></div>'+
+            '<p style="font-size:14px;margin-top:14px;color:var(--ink-2)"><strong>'+fc+' dari 3 tantangan</strong> benar di percobaan pertama · <strong>'+reviewCleared+' item</strong> tuntas lewat Putaran Ulasan'+(notCleared > 0 ? ' · '+notCleared+' item belum tuntas (masuk antrean review SRS-mu)' : '')+' · Durasi sesi: <strong>'+durTxt+'</strong> · Nyawa tersisa: <strong>'+hearts+' dari 3</strong></p>'+
+            '<p style="font-size:14.5px;margin-top:10px">'+streakMsg+'</p>'+
+          '</div>'+
+          '<div class="demo-actions"><button type="button" class="btn btn-amber" id="recapAgain">Ulangi Pelajaran</button>'+backLink()+'</div>';
+        document.getElementById("recapAgain").addEventListener("click", function(){ resetSession(); renderDemo(); });
+      }
+
       renderDemo();
 
       /* ============================================================
