@@ -998,6 +998,7 @@
                   <span class="tag" id="lvVocab">±800 kata inti</span>
                 </div>
                 <p class="cando" style="margin-top:14px;font-size:14px" id="lvFocus">Fokus level ini: fonetik &amp; pelafalan dasar, frasa survival, pola kalimat present &amp; past sederhana.</p>
+                <a class="btn btn-amber" id="lvCta" href="#/demo" style="margin-top:18px">Mulai Pelajaran Level A1 →</a>
               </div>
             </div>
             <div class="chart">
@@ -1748,7 +1749,8 @@
 
       var lvTitle=document.getElementById("lvTitle"), lvCando=document.getElementById("lvCando"),
           lvHours=document.getElementById("lvHours"), lvUnits=document.getElementById("lvUnits"),
-          lvVocab=document.getElementById("lvVocab"), lvFocus=document.getElementById("lvFocus");
+          lvVocab=document.getElementById("lvVocab"), lvFocus=document.getElementById("lvFocus"),
+          lvCta=document.getElementById("lvCta");
       btns.forEach(function(b){
         b.addEventListener("click", function(){
           btns.forEach(function(x){ x.setAttribute("aria-pressed","false"); });
@@ -1760,6 +1762,7 @@
           lvUnits.textContent = lv.units;
           lvVocab.textContent = lv.vocab;
           lvFocus.textContent = lv.focus;
+          lvCta.textContent = "Mulai Pelajaran Level " + lv.code + " →";
         });
       });
 
@@ -2565,7 +2568,7 @@
           el.querySelector(".avatar").textContent = nm.charAt(0).toUpperCase();
           el.querySelector(".nm").textContent = nm;
           el.querySelector(".nm").title = nm;
-          el.querySelector(".pl").textContent = "Paket " + planName;
+          el.querySelector(".pl").textContent = planName.indexOf("Paket") === 0 ? planName : "Paket " + planName;
           document.getElementById("logoutBtnS").addEventListener("click", doLogout);
         } else {
           el.innerHTML = '<span class="avatar" aria-hidden="true">?</span><span class="who"><span class="nm">Halo, Tamu</span><span class="pl">Belum masuk</span></span><a class="btn btn-amber btn-sm out" href="#/masuk">Masuk / Daftar</a>';
