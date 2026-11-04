@@ -1261,16 +1261,16 @@ atOptions = {
               </div>
               <div class="path" role="img" aria-label="Jalur level CEFR: A1 posisi awalmu dengan progres 0 persen, A2 target berikutnya, lalu B1, B2, C1, dan C2">
                 <span class="fill-line" style="width:0%" aria-hidden="true"></span>
-                <div class="node now">
+                <a class="node now" href="#/level">
                   <span class="dot">A1</span>
                   <span class="nm">A1<br>Beginner</span>
                   <span class="st8">Kamu di sini · 0%</span>
-                </div>
-                <div class="node next">
+                </a>
+                <a class="node next" href="#/level">
                   <span class="dot">A2</span>
                   <span class="nm">A2<br>Elementary</span>
                   <span class="st8">Target berikutnya</span>
-                </div>
+                </a>
                 <a class="node" href="#/level">
                   <span class="dot">B1</span>
                   <span class="nm">B1<br>Intermediate</span>
@@ -1698,11 +1698,16 @@ atOptions = {
               gradeMain(2, ok);
               document.getElementById("fb").innerHTML = feedback(ok,
                 ok ? "<strong>Tepat!</strong> Urutan katamu benar — produksi aktif seperti ini yang mengunci grammar ke ingatan jangka panjang." :
-                     "<strong>Urutan belum tepat.</strong> Urutan yang benar: “"+d.wordOrder.join(" ")+"”. Coba lagi — langkah ini masuk antrean Putaran Ulasan di akhir sesi"+".");
+                     "<strong>Urutan belum tepat.</strong> Urutan yang benar: “"+d.wordOrder.join(" ")+"”. Langkah ini sudah masuk antrean Putaran Ulasan di akhir sesi — susun lagi dari awal, atau lewati dulu dan perbaiki di putaran ulasan.");
               if(ok){
                 document.getElementById("nx").innerHTML = nextBtn("Lanjut: Ucapkan Kalimatnya");
                 document.getElementById("demoNext").addEventListener("click", function(){
-                  
+                  step = 3; renderDemo();
+                });
+              } else {
+                document.getElementById("nx").innerHTML = '<div class="demo-actions"><button type="button" class="btn btn-teal" id="demoRetry">Coba Lagi Susunan Ini</button><button type="button" class="btn btn-ghost" id="demoSkip">Lewati Langkah Ini</button></div>';
+                document.getElementById("demoRetry").addEventListener("click", function(){ renderDemo(); });
+                document.getElementById("demoSkip").addEventListener("click", function(){
                   step = 3; renderDemo();
                 });
               }
@@ -1741,8 +1746,9 @@ atOptions = {
             '<div class="demo-kicker">'+(inRev3 ? 'Putaran Ulasan · Item '+(reviewIdx+1)+' dari '+mistakes.length+' · Berbicara' : 'Langkah 4 dari 4 · Berbicara')+'</div>'+
             '<div class="demo-q">'+speakTarget.phrase+'<span class="romaji">'+speakTarget.note+'</span></div>'+
             badge3+
-            '<p class="demo-hint">Tekan tombol mikrofon dan ucapkan kalimat di atas. Skor dihitung dari hasil pengenalan suara di browser-mu — ucapkan kalimat target, lalu kata-katamu dibandingkan kata per kata dengan kalimat itu.</p>'+
+            '<p class="demo-hint">Tekan tombol mikrofon dan ucapkan kalimat di atas. Skor dihitung dari hasil pengenalan suara di browser-mu — ucapkan kalimat target, lalu kata-katamu dibandingkan kata per kata dengan kalimat itu. Kalau tidak ada mikrofon, pakai tombol lewati di bawah: sesi tetap lanjut.</p>'+
             '<div class="mic-wrap"><button type="button" class="mic-btn" id="micBtn" aria-label="Mulai merekam ucapan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></svg></button><span id="micState" style="font-size:13.5px;color:var(--ink-3);font-weight:600">'+(srSupported ? "Ketuk untuk mulai merekam" : "Browser ini tidak mendukung pengenalan suara")+'</span></div>'+
+            '<div class="demo-actions" style="justify-content:center"><button type="button" class="btn btn-ghost btn-sm" id="skipSpeakBtn">Lewati langkah ini — lanjut tanpa mikrofon</button></div>'+
             '<div id="scoreOut"></div>';
           var mb = document.getElementById("micBtn"), ms = document.getElementById("micState"), out = document.getElementById("scoreOut");
           var listening = false, gotResult = false, activeRec = null, lastTranscript = "", uiDone = false;
@@ -1926,6 +1932,8 @@ atOptions = {
             startRec();
           }
           mb.addEventListener("click", toggleRec);
+          var skipSpeakBtn = document.getElementById("skipSpeakBtn");
+          if(skipSpeakBtn) skipSpeakBtn.addEventListener("click", skipSpeak);
         }
       }
 
@@ -2103,10 +2111,10 @@ atOptions = {
 
       /* ---------- Dashboard (state awal: semua nol, hanya untuk sesi ini) ---------- */
       var DASH_TASKS = [
-        { t:"Ikuti Tes Penempatan Singkat", s:"Bahasa Inggris · ±5 menit · memastikan titik awalmu di A1", xp:10, href:"#/level", go:"Mulai →", done:false },
-        { t:"Pelajaran Pertama — Perkenalan Diri (Unit 1)", s:"Bahasa Inggris · Level A1 · ±10 menit", xp:40, href:"#/demo", go:"Mulai →", done:false },
-        { t:"Sesi Percakapan AI — Topik “Perkenalan Diri”", s:"Bahasa Inggris · latihan bicara pertamamu dengan tutor AI", xp:30, href:"#/percakapan", go:"Mulai →", done:false },
-        { t:"Kosakata Dasar — 10 Kata & Frasa Pertama", s:"Bahasa Inggris · sapaan dan perkenalan sehari-hari", xp:20, href:"#/demo", go:"Buka →", done:false }
+        { t:"Ikuti Tes Penempatan Singkat", s:"Bahasa Inggris · ±5 menit · memastikan titik awalmu di A1", xp:10, go:"Mulai →", done:false },
+        { t:"Pelajaran Pertama — Perkenalan Diri (Unit 1)", s:"Bahasa Inggris · Level A1 · ±10 menit", xp:40, go:"Mulai →", done:false },
+        { t:"Sesi Percakapan AI — Topik “Perkenalan Diri”", s:"Bahasa Inggris · latihan bicara pertamamu dengan tutor AI", xp:30, go:"Mulai →", done:false },
+        { t:"Kosakata Dasar — 10 Kata & Frasa Pertama", s:"Bahasa Inggris · sapaan dan perkenalan sehari-hari", xp:20, go:"Buka →", done:false }
       ];
       var CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
       var DASH_FEATURES = [
