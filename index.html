@@ -189,7 +189,7 @@
       .lesson .st{margin-left:auto;font-size:11.5px;font-weight:800;padding:4px 9px;border-radius:99px;flex:none}
       .st.done{background:var(--good-soft);color:var(--good)}
       .st.now{background:var(--amber-soft);color:var(--amber-deep)}
-      .st.lock{background:var(--bg-soft);color:var(--ink-3)}
+
       .ph-score{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:12px}
       .ring{width:56px;height:56px;flex:none}
       .ring .num{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px}
@@ -215,7 +215,7 @@
       .lang-card .body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
       .lang-card .lang-pick{margin-top:6px;align-self:flex-start}
       .lang-card.selected{outline:2px solid var(--teal);outline-offset:2px}
-      .lang-pick[disabled]{opacity:.85;cursor:default}
+
       .lang-card h3{font-size:21px;font-weight:800;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
       .lang-card h3 .script{font-size:15px;color:var(--amber-deep);font-weight:700}
       .lang-card p{color:var(--ink-2);font-size:14.5px}
@@ -308,12 +308,7 @@
       .demo-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
       .demo-toprow{display:flex;align-items:center;gap:14px;margin-bottom:20px}
       .demo-toprow .demo-steps{flex:1;margin-bottom:0}
-      .hearts{display:flex;gap:4px;font-size:19px;line-height:1;flex:none}
-      .hearts .h{display:inline-block;transition:filter .3s ease,opacity .3s ease}
-      .hearts .h.lost{filter:grayscale(1);opacity:.3}
-      .hearts .h.pop{animation:hpop .55s ease}
-      @keyframes hpop{0%{transform:scale(1)}35%{transform:scale(1.5) rotate(-10deg)}100%{transform:scale(1)}}
-      @media (prefers-reduced-motion: reduce){.hearts .h.pop{animation:none}}
+
       .path-badge{display:flex;gap:9px;align-items:flex-start;border-radius:12px;padding:11px 14px;font-size:14px;margin-top:14px;line-height:1.55}
       .path-badge.fast{background:var(--amber-soft);border:1.5px dashed var(--amber)}
       .path-badge.prac{background:var(--teal-soft);border:1.5px dashed var(--teal)}
@@ -555,7 +550,8 @@
       .path{display:flex;align-items:flex-start;position:relative;margin:6px 0 4px}
       .path::before{content:"";position:absolute;top:27px;left:9%;right:9%;height:5px;border-radius:99px;background:var(--bg-soft)}
       .path .fill-line{position:absolute;top:27px;left:9%;height:5px;border-radius:99px;background:var(--teal);width:26%}
-      .node{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;position:relative;z-index:1;padding:0 2px}
+      .node{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;position:relative;z-index:1;padding:0 2px;text-decoration:none;color:inherit}
+      .node[href]:hover .dot{border-color:var(--teal)}
       .node .dot{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:17px;background:var(--surface);border:2.5px solid var(--line);color:var(--ink-3)}
       .node .dot svg{width:22px;height:22px}
       .node.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
@@ -627,9 +623,9 @@
       .feat .fdesc{font-size:13px;color:var(--ink-2);line-height:1.45}
       .feat .fstat{font-size:12px;font-weight:800;margin-top:4px}
       .feat.open .fstat{color:var(--good)}
-      .feat .flock{margin-left:auto;flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
-      .feat .flock svg{width:18px;height:18px}
-      .feat.open .flock{background:var(--good-soft);color:var(--good)}
+      .feat .fcheck{margin-left:auto;flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+      .feat .fcheck svg{width:18px;height:18px}
+      .feat.open .fcheck{background:var(--good-soft);color:var(--good)}
     </style>
   </head>
   <body>
@@ -765,7 +761,7 @@
             <div class="lesson">
               <span class="ic" style="background:var(--coral-soft)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span>
               <div><div class="t">Review Kosakata SRS</div><div class="s">38 kartu jatuh tempo</div></div>
-              <span class="st lock">Nanti</span>
+              <span class="st now">Siap</span>
             </div>
             <div class="ph-score">
               <svg class="ring" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="25" fill="none" stroke="var(--bg-soft)" stroke-width="6"/><circle cx="30" cy="30" r="25" fill="none" stroke="var(--good)" stroke-width="6" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="22" transform="rotate(-90 30 30)"/><text x="30" y="37" text-anchor="middle" class="num" fill="var(--ink)">86</text></svg>
@@ -914,7 +910,7 @@ atOptions = {
             <div class="demo-card">
               <div class="demo-toprow">
                 <div class="demo-steps" id="demoSteps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
-                <div class="hearts" id="demoHearts" role="img" aria-label="Nyawa tersisa: 3 dari 3"></div>
+                
               </div>
               <div id="demoBody"></div>
             </div>
@@ -1163,6 +1159,9 @@ atOptions = {
               <button type="button" data-conv-level="A1" aria-pressed="false">A1</button>
               <button type="button" data-conv-level="A2" aria-pressed="true">A2</button>
               <button type="button" data-conv-level="B1" aria-pressed="false">B1</button>
+              <button type="button" data-conv-level="B2" aria-pressed="false">B2</button>
+              <button type="button" data-conv-level="C1" aria-pressed="false">C1</button>
+              <button type="button" data-conv-level="C2" aria-pressed="false">C2</button>
             </div>
             <span class="scenario" id="convScenario"></span>
           </div>
@@ -1272,26 +1271,26 @@ atOptions = {
                   <span class="nm">A2<br>Elementary</span>
                   <span class="st8">Target berikutnya</span>
                 </div>
-                <div class="node">
+                <a class="node" href="#/level">
                   <span class="dot">B1</span>
                   <span class="nm">B1<br>Intermediate</span>
-                  <span class="st8">Nanti</span>
-                </div>
-                <div class="node">
+                  <span class="st8">Terbuka</span>
+                </a>
+                <a class="node" href="#/level">
                   <span class="dot">B2</span>
                   <span class="nm">B2<br>Upper-Intermediate</span>
-                  <span class="st8">Nanti</span>
-                </div>
-                <div class="node">
+                  <span class="st8">Terbuka</span>
+                </a>
+                <a class="node" href="#/level">
                   <span class="dot">C1</span>
                   <span class="nm">C1<br>Advanced</span>
-                  <span class="st8">Nanti</span>
-                </div>
-                <div class="node">
+                  <span class="st8">Terbuka</span>
+                </a>
+                <a class="node" href="#/level">
                   <span class="dot">C2</span>
                   <span class="nm">C2<br>Mastery</span>
-                  <span class="st8">Nanti</span>
-                </div>
+                  <span class="st8">Terbuka</span>
+                </a>
               </div>
               <div class="trackbar"><i style="width:0%"></i></div>
               <p class="dash-note-txt"><strong>0 XP</strong> terkumpul — kamu mulai dari Level A1 <span id="dashXpLang">Bahasa Inggris</span>. Selesaikan pelajaran pertamamu untuk mulai mengisi jalur ini. <a href="#/level">Lihat peta level A1–C2 →</a></p>
@@ -1506,47 +1505,28 @@ atOptions = {
       var langsEl = document.getElementById("demoLangs");
       var bodyEl = document.getElementById("demoBody");
       var stepsEl = document.getElementById("demoSteps");
-      var heartsEl = document.getElementById("demoHearts");
-
-      /* --- Mekanik sesi ala Duolingo ---
-         hearts: 3 nyawa per sesi; salah di tantangan 1–3 (Uji Pemahaman,
-         Susun Kalimat) atau skor Berbicara < 60 mengurangi 1 nyawa.
+      /* --- Mekanik sesi ---
+         Jawaban salah tidak menghentikan sesi: langkah yang salah masuk antrean Putaran Ulasan.
          firstTry/answered: pelacakan benar-di-percobaan-pertama per langkah
          (ala numChallengesCorrect/Answered/Total).
          mistakes: antrean langkah yang salah -> ditanya ulang di Putaran
          Ulasan (ala mistakesReplacementChallenges).
          fastTrack/practicePath: kesulitan adaptif (ala adaptiveChallenges),
          diputuskan tepat saat memasuki langkah 4 Berbicara. */
-      var hearts = 3, heartLost = false;
       var firstTry = {}, answered = {};
       var mistakes = [];
-      var mode = "main"; /* main | review | out | done */
+      var mode = "main"; /* main | review | done */
       var reviewIdx = 0, reviewCleared = 0, reviewResults = {};
       var fastTrack = false, practicePath = false, pathDecided = false;
       var sessionStart = Date.now();
 
       function resetSession(){
-        hearts = 3; heartLost = false;
-        firstTry = {}; answered = {};
+                firstTry = {}; answered = {};
         mistakes = [];
         mode = "main"; reviewIdx = 0; reviewCleared = 0; reviewResults = {};
         fastTrack = false; practicePath = false; pathDecided = false;
         sessionStart = Date.now();
         step = 0; picked = [];
-      }
-      function renderHearts(){
-        if(!heartsEl) return;
-        var html = "";
-        for(var i=0;i<3;i++){
-          var lost = i >= hearts;
-          html += '<span class="h'+(lost ? " lost" : "")+((lost && heartLost && i === hearts) ? " pop" : "")+'" aria-hidden="true">❤️</span>';
-        }
-        heartsEl.innerHTML = html;
-        heartsEl.setAttribute("aria-label", "Nyawa tersisa: "+hearts+" dari 3");
-        heartLost = false;
-      }
-      function loseHeart(){
-        if(hearts > 0){ hearts--; heartLost = true; renderHearts(); }
       }
       function gradeMain(s, ok){
         if(answered[s]) return;
@@ -1554,7 +1534,7 @@ atOptions = {
         firstTry[s] = !!ok;
         if(!ok){
           if(mistakes.indexOf(s) === -1) mistakes.push(s);
-          loseHeart();
+          
         }
       }
       function advanceReview(){
@@ -1609,8 +1589,7 @@ atOptions = {
       function renderDemo(){
         var d = DEMO[curLang];
         picked = [];
-        renderHearts();
-        if(mode === "out"){ setSteps(step); renderOut(); return; }
+
         if(mode === "done"){ setSteps(4); renderRecap(); return; }
         var s = (mode === "review") ? mistakes[reviewIdx] : step;
         setSteps(s);
@@ -1637,7 +1616,7 @@ atOptions = {
             '<div class="demo-kicker">'+(inRev1 ? 'Putaran Ulasan · Item '+(reviewIdx+1)+' dari '+mistakes.length+' · Uji Pemahaman' : 'Langkah 2 dari 4 · Uji Pemahaman')+'</div>'+
             '<div class="demo-q">'+d.phrase+'<span class="romaji">'+d.phraseRomaji+'</span></div>'+
             '<p class="demo-hint">Apa arti kalimat di atas?</p>'+
-            (inRev1 ? '<p class="mini-note">Putaran ulasan: nyawamu aman di sini — jawaban salah tidak mengurangi ❤. Jawab dengan benar untuk menuntaskan item ini.</p>' : '')+
+            (inRev1 ? '<p class="mini-note">Putaran ulasan: jawaban salah tidak menghentikan sesi. Jawab dengan benar untuk menuntaskan item ini.</p>' : '')+
             '<div class="opts" id="opts">'+ opts.map(function(o){ return '<button type="button" class="opt" data-ok="'+o.ok+'">'+o.t+"</button>"; }).join("") +"</div>"+
             '<div id="fb"></div><div id="nx"></div>';
           bodyEl.querySelectorAll(".opt").forEach(function(btn){
@@ -1656,10 +1635,10 @@ atOptions = {
                 gradeMain(1, ok);
                 document.getElementById("fb").innerHTML = feedback(ok,
                   ok ? "<strong>Benar!</strong> Kamu menangkap makna kalimat utuh, bukan kata per kata — itu tanda input-mu bekerja." :
-                       "<strong>Belum tepat.</strong> Jawaban yang benar ditandai hijau. Kalimat ini masuk antrean Putaran Ulasan di akhir sesi, dan nyawamu berkurang 1 — tersisa "+hearts+" dari 3.");
-                document.getElementById("nx").innerHTML = nextBtn(hearts <= 0 ? "Lanjut" : "Lanjut: Susun Kalimat");
+                       "<strong>Belum tepat.</strong> Jawaban yang benar ditandai hijau. Kalimat ini masuk antrean Putaran Ulasan di akhir sesi.");
+                document.getElementById("nx").innerHTML = nextBtn("Lanjut: Susun Kalimat");
                 document.getElementById("demoNext").addEventListener("click", function(){
-                  if(hearts <= 0){ mode = "out"; renderDemo(); return; }
+                  
                   step = 2; renderDemo();
                 });
               }
@@ -1675,7 +1654,7 @@ atOptions = {
             '<div class="demo-kicker">'+(inRev2 ? 'Putaran Ulasan · Item '+(reviewIdx+1)+' dari '+mistakes.length+' · Produksi' : 'Langkah 3 dari 4 · Produksi')+'</div>'+
             '<div class="demo-q">Susun kalimat: “'+d.meaning+'”</div>'+
             '<p class="demo-hint">Ketuk potongan kata di bawah ini sesuai urutan yang benar. Ketuk lagi potongan di kotak jawaban untuk membatalkan.</p>'+
-            (inRev2 ? '<p class="mini-note">Putaran ulasan: nyawamu aman di sini — susunan pertamamu di putaran ini yang menentukan tuntas atau belum.</p>' : '')+
+            (inRev2 ? '<p class="mini-note">Putaran ulasan: susunan pertamamu di putaran ini yang menentukan tuntas atau belum.</p>' : '')+
             '<div class="chips-answer" id="ansBox"><span style="font-size:13px;color:var(--ink-3)" id="ansHint">Jawabanmu akan tersusun di sini…</span></div>'+
             '<div class="chips-pool" id="pool">'+ shuffled.map(function(w,i){ return '<button type="button" class="chip" data-w="'+w+'" data-i="'+i+'">'+w+"</button>"; }).join("") +"</div>"+
             '<div id="fb"></div><div id="nx"></div>';
@@ -1719,17 +1698,15 @@ atOptions = {
               gradeMain(2, ok);
               document.getElementById("fb").innerHTML = feedback(ok,
                 ok ? "<strong>Tepat!</strong> Urutan katamu benar — produksi aktif seperti ini yang mengunci grammar ke ingatan jangka panjang." :
-                     "<strong>Urutan belum tepat.</strong> Urutan yang benar: “"+d.wordOrder.join(" ")+"”. Coba lagi — langkah ini masuk antrean Putaran Ulasan di akhir sesi"+(firstAttempt2 ? ", dan nyawamu berkurang 1 — tersisa "+hearts+" dari 3." : "."));
+                     "<strong>Urutan belum tepat.</strong> Urutan yang benar: “"+d.wordOrder.join(" ")+"”. Coba lagi — langkah ini masuk antrean Putaran Ulasan di akhir sesi"+".");
               if(ok){
                 document.getElementById("nx").innerHTML = nextBtn("Lanjut: Ucapkan Kalimatnya");
                 document.getElementById("demoNext").addEventListener("click", function(){
-                  if(hearts <= 0){ mode = "out"; renderDemo(); return; }
+                  
                   step = 3; renderDemo();
                 });
-              } else if(hearts <= 0){
-                document.getElementById("nx").innerHTML = nextBtn("Lanjut");
-                document.getElementById("demoNext").addEventListener("click", function(){ mode = "out"; renderDemo(); });
               }
+
             }
           }
           bodyEl.querySelectorAll("#pool .chip").forEach(function(chip){
@@ -1755,7 +1732,7 @@ atOptions = {
           var speakTarget = fastTrack ? d.speakAlt : { phrase:d.phrase, note:d.phraseRomaji };
           var inRev3 = (mode === "review");
           var badge3 = "";
-          if(inRev3) badge3 = '<p class="mini-note">Putaran ulasan: nyawamu aman di sini — skor 60 ke atas menuntaskan item ini.</p>';
+          if(inRev3) badge3 = '<p class="mini-note">Putaran ulasan: skor 60 ke atas menuntaskan item ini.</p>';
           else if(fastTrack) badge3 = '<div class="path-badge fast"><span class="tag">Jalur Cepat 🚀</span><span>Dua tantangan pertama kamu jawab benar tanpa satu pun salah — jadi kalimat Berbicara kali ini ditingkatkan ke versi yang lebih menantang. Selesaikan sesi ini dan bonus +5 XP jadi milikmu!</span></div>';
           else if(practicePath) badge3 = '<div class="path-badge prac"><span class="tag">Jalur Latihan 💪</span><span>Tidak apa-apa, namanya juga sedang belajar! Kita pakai kalimat standar dulu — dan setelah langkah ini, Putaran Ulasan akan membantumu menguatkan bagian yang belum mantap.</span></div>';
           var SRClass = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -1771,14 +1748,13 @@ atOptions = {
           var listening = false, gotResult = false, activeRec = null, lastTranscript = "", uiDone = false;
           var speakCleared = false;
           function proceedAfterSpeak(){
-            if(hearts <= 0){ mode = "out"; renderDemo(); return; }
+            
             if(mistakes.length){ mode = "review"; reviewIdx = 0; renderDemo(); }
             else { mode = "done"; renderDemo(); }
           }
           function skipSpeak(){
             /* Jalan keluar bila pengenalan suara tidak bisa dipakai: langkah
-               dicatat sebagai sudah dijawab (belum benar) tanpa mengurangi
-               nyawa, lalu alur tetap berjalan. */
+               dicatat sebagai sudah dijawab (belum benar) lalu alur tetap berjalan. */
             if(mode === "review"){
               if(!speakCleared) reviewResults[3] = false;
               advanceReview();
@@ -1835,8 +1811,7 @@ atOptions = {
               ? "Sempurna — semua " + target.length + " kata target terucap dengan benar."
               : hits + " dari " + target.length + " kata target terucap benar. Kata yang terlewat atau belum tepat ditandai merah — coba ucapkan lagi dengan lebih pelan dan jelas.";
             /* Penilaian sesi: di putaran utama, percobaan berskor pertama yang
-               menentukan benar/salah (skor < 60 = salah -> antrean ulasan +
-               nyawa -1). Di Putaran Ulasan, skor >= 60 menuntaskan item. */
+               menentukan benar/salah (skor < 60 = salah -> antrean ulasan). Di Putaran Ulasan, skor >= 60 menuntaskan item. */
             if(!inRev3 && !answered[3]) gradeMain(3, score >= 60);
             if(inRev3 && score >= 60 && !speakCleared){ speakCleared = true; reviewCleared++; reviewResults[3] = true; }
             var actionsHtml;
@@ -1848,7 +1823,7 @@ atOptions = {
                   '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Ucapkan Lagi</button><button type="button" class="btn btn-ghost" id="hearBtn">Dengarkan Kalimat yang Benar</button><button type="button" class="btn btn-amber" id="speakNext">Lanjut</button></div>';
               }
             } else {
-              var proceedLabel = hearts <= 0 ? "Lanjut" : (mistakes.length ? "Lanjut: Putaran Ulasan" : "Selesai — Lihat Rekap");
+              var proceedLabel = mistakes.length ? "Lanjut: Putaran Ulasan" : "Selesai — Lihat Rekap";
               actionsHtml = '<div class="demo-actions"><button type="button" class="btn btn-teal" id="retryBtn">Coba Ucapkan Lagi</button><button type="button" class="btn btn-amber" id="speakNext">'+proceedLabel+'</button></div>';
             }
             out.innerHTML =
@@ -1953,16 +1928,6 @@ atOptions = {
           mb.addEventListener("click", toggleRec);
         }
       }
-      function renderOut(){
-        var fc = [1,2,3].filter(function(x){ return firstTry[x]; }).length;
-        bodyEl.innerHTML =
-          '<div class="demo-kicker">Sesi Berakhir</div>'+
-          '<div class="demo-q">Kehabisan Nyawa 💔</div>'+
-          '<p class="demo-hint">Tiga nyawamu habis di pelajaran ini — dan itu bukan kegagalan, itu bagian wajar dari proses belajar bahasa. Setiap kesalahan tadi justru menunjukkan bagian mana yang perlu dikuatkan.</p>'+
-          '<p class="demo-hint">Sejauh ini kamu menjawab benar di percobaan pertama pada <strong>'+fc+' dari 3 tantangan</strong>. Ulangi dari awal selagi ingatannya masih segar — biasanya percobaan kedua terasa jauh lebih mudah. Kamu pasti bisa!</p>'+
-          '<div class="demo-actions"><button type="button" class="btn btn-amber" id="outRetry">Coba Lagi dari Awal</button>'+backLink()+'</div>';
-        document.getElementById("outRetry").addEventListener("click", function(){ resetSession(); renderDemo(); });
-      }
 
       function renderRecap(){
         var fc = [1,2,3].filter(function(x){ return firstTry[x]; }).length;
@@ -1988,7 +1953,7 @@ atOptions = {
             '<div class="score-row"><span>XP putaran ulasan</span><span class="track"><span class="fill" style="display:block;width:'+(mistakes.length ? (reviewCleared/mistakes.length*100) : 0)+'%"></span></span><span class="v">+'+xpReview+'</span></div>'+
             (fastTrack ? '<div class="score-row"><span>Bonus Jalur Cepat 🚀</span><span class="track"><span class="fill" style="display:block;width:100%"></span></span><span class="v">+5</span></div>' : '')+
             '<div class="score-row"><span>Akurasi</span><span class="track"><span class="fill" style="display:block;width:'+acc+'%"></span></span><span class="v">'+acc+'%</span></div>'+
-            '<p style="font-size:14px;margin-top:14px;color:var(--ink-2)"><strong>'+fc+' dari 3 tantangan</strong> benar di percobaan pertama · <strong>'+reviewCleared+' item</strong> tuntas lewat Putaran Ulasan'+(notCleared > 0 ? ' · '+notCleared+' item belum tuntas (masuk antrean review SRS-mu)' : '')+' · Durasi sesi: <strong>'+durTxt+'</strong> · Nyawa tersisa: <strong>'+hearts+' dari 3</strong></p>'+
+            '<p style="font-size:14px;margin-top:14px;color:var(--ink-2)"><strong>'+fc+' dari 3 tantangan</strong> benar di percobaan pertama · <strong>'+reviewCleared+' item</strong> tuntas lewat Putaran Ulasan'+(notCleared > 0 ? ' · '+notCleared+' item belum tuntas (masuk antrean review SRS-mu)' : '')+' · Durasi sesi: <strong>'+durTxt+'</strong></p>'+
             '<p style="font-size:14.5px;margin-top:10px">'+streakMsg+'</p>'+
           '</div>'+
           '<div class="demo-actions"><button type="button" class="btn btn-amber" id="recapAgain">Ulangi Pelajaran</button>'+backLink()+'</div>';
@@ -2013,13 +1978,13 @@ atOptions = {
           var isCur = (k === cur);
           card.classList.toggle("selected", isCur);
           btn.textContent = isCur ? "\u2713 Bahasa Dipilih" : "Pilih " + DASH_LANGS[k];
-          btn.disabled = isCur;
+          
           btn.setAttribute("aria-pressed", isCur ? "true" : "false");
         });
       }
       document.addEventListener("click", function(e){
         var btn = (e.target && e.target.closest) ? e.target.closest(".lang-pick") : null;
-        if(!btn || btn.disabled) return;
+        if(!btn) return;
         var card = btn.closest(".lang-card");
         var k = card && card.getAttribute("data-lang");
         if(!k || !DASH_LANGS[k]) return;
@@ -2143,7 +2108,7 @@ atOptions = {
         { t:"Sesi Percakapan AI — Topik “Perkenalan Diri”", s:"Bahasa Inggris · latihan bicara pertamamu dengan tutor AI", xp:30, href:"#/percakapan", go:"Mulai →", done:false },
         { t:"Kosakata Dasar — 10 Kata & Frasa Pertama", s:"Bahasa Inggris · sapaan dan perkenalan sehari-hari", xp:20, href:"#/demo", go:"Buka →", done:false }
       ];
-      var LOCK_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.7-1.6"/></svg>';
+      var CHECK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
       var DASH_FEATURES = [
         { name:"Tutor AI tanpa batas", desc:"Ngobrol dengan tutor AI kapan saja — tanpa kuota sesi harian.", bg:"var(--teal-soft)", fg:"var(--teal)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' },
         { name:"Sertifikat CEFR", desc:"Sertifikat terverifikasi setiap kamu menuntaskan satu level — siap dilampirkan ke CV.", bg:"var(--amber-soft)", fg:"var(--amber-deep)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--amber-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>' },
@@ -2162,7 +2127,7 @@ atOptions = {
             '<span class="fic" style="background:' + f.bg + '">' + f.icon + '</span>' +
             '<span class="fmid"><span class="fname"></span><span class="fdesc"></span>' +
             '<span class="fstat">Tersedia</span></span>' +
-            '<span class="flock" aria-hidden="true">' + LOCK_OPEN + '</span>';
+            '<span class="fcheck" aria-hidden="true">' + CHECK_ICON + '</span>';
           el.querySelector(".fname").textContent = f.name;
           el.querySelector(".fdesc").textContent = f.desc;
           wrap.appendChild(el);
@@ -2377,7 +2342,7 @@ atOptions = {
         ]
       };
       /* ---------- AI conversation: logic (simulasi lokal) ---------- */
-      var conv = { lang:"inggris", topic:"perkenalan", level:"A2", turn:0, started:false, finished:false, records:[], lastAi:"", showEx:false };
+      var conv = { lang:"inggris", topic:"perkenalan", level:"A2", turn:0, started:false, finished:false, records:[], lastAi:"" };
       var convLog = document.getElementById("convLog");
       var convInput = document.getElementById("convInput");
       var convHintEl = document.getElementById("convHint");
@@ -2540,15 +2505,9 @@ atOptions = {
           return;
         }
         var html = "<strong>Petunjuk giliran ini:</strong> " + turn.hint;
-        if(conv.level === "A1" || conv.showEx){
-          html += '<span class="ex">Contoh jawaban ideal: ' + turn.exp[conv.lang] + '<br><span style="font-weight:400;font-size:13px;color:var(--ink-2)">' + turn.expId + '</span></span>';
-        } else {
-          html += ' <button type="button" class="tool-btn" id="convShowEx">Lihat contoh jawaban ideal</button>';
-        }
+        html += '<span class="ex">Contoh jawaban ideal: ' + turn.exp[conv.lang] + '<br><span style="font-weight:400;font-size:13px;color:var(--ink-2)">' + turn.expId + '</span></span>';
         html += ' <button type="button" class="tool-btn" id="convFillEx">Pakai contoh sebagai jawaban</button>';
         convHintEl.innerHTML = html;
-        var sh = document.getElementById("convShowEx");
-        if(sh) sh.addEventListener("click", function(){ conv.showEx = true; updateConvHint(); });
         var fl = document.getElementById("convFillEx");
         if(fl) fl.addEventListener("click", function(){ convInput.value = turn.exp[conv.lang]; convInput.focus(); });
       }
@@ -2579,7 +2538,6 @@ atOptions = {
       document.querySelectorAll("[data-conv-level]").forEach(function(b){
         b.addEventListener("click", function(){
           conv.level = b.getAttribute("data-conv-level");
-          conv.showEx = false;
           buildConvChips(); updateConvHint();
         });
       });
@@ -2587,7 +2545,7 @@ atOptions = {
         convLog.classList.toggle("hide-trans", !this.checked);
       });
       function startConv(){
-        conv.turn = 0; conv.records = []; conv.started = true; conv.finished = false; conv.showEx = false;
+        conv.turn = 0; conv.records = []; conv.started = true; conv.finished = false;
         convLog.innerHTML = "";
         document.getElementById("convSummary").classList.add("hidden");
         setConvStatus("", false);
@@ -2630,7 +2588,7 @@ atOptions = {
         conv.records.push(rec);
         addCorrection(rec);
         convInput.value = "";
-        conv.turn++; conv.showEx = false;
+        conv.turn++;
         updateConvHead();
         if(conv.turn >= convScript().length){
           setTimeout(function(){ finishConv(true); }, 650);
@@ -2695,9 +2653,9 @@ atOptions = {
           mistakeLis = "<li>Tidak ada pola kesalahan yang berulang — kesalahanmu kecil dan acak. Kerja bagus!</li>";
         }
         var saran = CONV_TOPICS[conv.topic].saran.slice();
-        if(avg < 65) saran.unshift("Ulangi topik ini di level A1 dengan contoh jawaban tampil, lalu naik ke A2 tanpa contoh.");
+        if(avg < 65) saran.unshift("Ulangi topik ini di level A1, lalu naik ke level berikutnya dan coba menjawab tanpa melihat contoh dulu.");
         else if(avg < 85) saran.unshift("Ulangi topik ini sekali lagi dan targetkan skor 85+ di setiap giliran sebelum pindah topik.");
-        else saran.unshift("Naikkan levelnya (B1 menyembunyikan contoh jawaban) atau lanjut ke topik situasi berikutnya.");
+        else saran.unshift("Naikkan levelnya (B2, C1, atau C2) atau lanjut ke topik situasi berikutnya.");
         var saranLis = "";
         saran.forEach(function(s){ saranLis += "<li>" + s + "</li>"; });
         var turnChips = "";
