@@ -380,43 +380,6 @@
       .j-step h3{font-size:16.5px;font-weight:800;margin-bottom:5px}
       .j-step p{font-size:14px;color:var(--ink-2)}
 
-      /* pricing */
-      .price-toggle{display:inline-flex;background:var(--bg-soft);border:1px solid var(--line);border-radius:99px;padding:4px;gap:4px;margin-bottom:26px}
-      .price-toggle button{border:0;background:transparent;padding:8px 18px;border-radius:99px;font-weight:700;font-size:14px;color:var(--ink-2)}
-      .price-toggle button[aria-pressed="true"]{background:var(--teal);color:#fff}
-      .price-toggle .save{font-size:11px;background:var(--amber);color:#231600;border-radius:99px;padding:2px 7px;margin-left:6px;font-weight:800}
-      .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
-      @media (max-width:900px){.price-grid{grid-template-columns:1fr}}
-      .p-card{background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
-      .p-card.hot{border-color:var(--amber);position:relative}
-      .p-card .badge{position:absolute;top:-13px;left:22px;background:var(--amber);color:#231600;font-size:12px;font-weight:800;padding:5px 12px;border-radius:99px}
-      .p-card h3{font-size:19px;font-weight:800}
-      .p-card .who{font-size:13.5px;color:var(--ink-3);margin-top:3px}
-      .p-card .price{margin:18px 0 4px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:32px;letter-spacing:-.01em}
-      .p-card .price small{font-size:14px;font-family:"Public Sans",sans-serif;font-weight:600;color:var(--ink-3)}
-      .p-card .per{font-size:13px;color:var(--ink-3);min-height:20px}
-      .p-card ul{list-style:none;margin:16px 0 22px;padding:0;display:grid;gap:9px;font-size:14.5px}
-      .p-card li{display:flex;gap:9px;color:var(--ink-2)}
-      .p-card li svg{width:17px;height:17px;color:var(--good);flex:none;margin-top:3px}
-      .p-card li.off{color:var(--ink-3)}
-      .p-card li.off svg{color:var(--ink-3)}
-      .p-card .btn{margin-top:auto;width:100%}
-      .pay-note{margin-top:18px;font-size:13.5px;color:var(--ink-3);text-align:center}
-
-      /* comparison */
-      .compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-      @media (max-width:860px){.compare-grid{grid-template-columns:1fr}}
-      .c-card{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--surface-2)}
-      .c-card.us{background:var(--surface);border:2px solid var(--teal);box-shadow:var(--shadow)}
-      .c-card h3{font-size:18px;font-weight:800}
-      .c-card .pos{font-size:13px;color:var(--ink-3);margin:3px 0 14px}
-      .c-card dl{margin:0;display:grid;gap:11px;font-size:14px}
-      .c-card dl div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:9px}
-      .c-card dl div:last-child{border-bottom:0;padding-bottom:0}
-      .c-card dt{color:var(--ink-2)}
-      .c-card dd{margin:0;font-weight:700;text-align:right}
-      .yes{color:var(--good)} .mid{color:var(--amber-deep)} .no{color:var(--bad)}
-
       /* final cta + footer */
       .final{background:var(--grad);border-radius:26px;padding:clamp(26px,5vw,48px);text-align:center;color:#fff;box-shadow:var(--shadow-lg)}
       .final h2{color:#fff;font-size:clamp(25px,4.4vw,38px);font-weight:800;max-width:640px;margin:0 auto 12px}
@@ -464,78 +427,6 @@
       /* ---------- mockup notice ---------- */
       .mock-note{border:1.5px dashed var(--amber);background:var(--amber-soft);border-radius:14px;padding:13px 16px;font-size:13.5px;color:var(--ink);margin-bottom:22px;line-height:1.55}
       .mock-note code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
-
-      /* ---------- auth page ---------- */
-      .auth-wrap{max-width:520px}
-      .auth-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);padding:clamp(22px,4vw,34px)}
-      .auth-card h2{font-size:26px;font-weight:800;margin-bottom:6px}
-      .auth-sub{color:var(--ink-2);font-size:14.5px;margin-bottom:20px}
-      .auth-tabs{display:flex;background:var(--bg-soft);border:1px solid var(--line);border-radius:99px;padding:4px;gap:4px;margin-bottom:22px}
-      .auth-tabs button{flex:1;border:0;background:transparent;padding:9px;border-radius:99px;font-weight:700;font-size:14.5px;color:var(--ink-2)}
-      .auth-tabs button[aria-pressed="true"]{background:var(--teal);color:#fff}
-      .field{margin-bottom:15px}
-      .field label{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px}
-      .field input{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-size:15px;background:var(--surface-2);color:var(--ink)}
-      .field input:focus{outline:3px solid var(--amber-soft);border-color:var(--amber)}
-      .auth-submit{width:100%;margin-top:4px}
-      .form-msg{font-size:14px;margin-top:13px;border-radius:11px;line-height:1.55}
-      .form-msg.ok{background:var(--good-soft);padding:11px 14px}
-      .form-msg.no{background:var(--bad-soft);padding:11px 14px}
-      .or{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--ink-3);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-      .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
-      .btn-google{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px;font-weight:700;font-size:15px;color:var(--ink);cursor:pointer}
-      .btn-google:hover{border-color:var(--teal)}
-      .btn-google svg{width:19px;height:19px;flex:none}
-      .auth-note{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.55}
-      .auth-note code,.config-box code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
-      .config-box{margin-top:18px;background:var(--bg-soft);border:1px solid var(--line);border-radius:13px;padding:13px 15px;font-size:12.5px;line-height:1.7;color:var(--ink-2)}
-      .config-box .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-      .config-box code{word-break:break-all;text-align:right}
-      .config-box .st{font-weight:800}
-
-      /* ---------- paywall ---------- */
-      .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:26px}
-      @media (max-width:760px){.flow-steps{grid-template-columns:1fr 1fr}}
-      .flow-step{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:12px 13px;font-size:13px;color:var(--ink-2)}
-      .flow-step .n{width:24px;height:24px;flex:none;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:grid;place-items:center;font-size:13px}
-      .flow-step strong{display:block;font-size:13.5px;color:var(--ink)}
-      .plan-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}
-      @media (max-width:900px){.plan-pick{grid-template-columns:1fr}}
-      .pick-card{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
-      .pick-card.picked{border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-soft)}
-      .pick-card h3{font-size:18px;font-weight:800}
-      .pick-card .pp{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:24px}
-      .pick-card .pp small{font-size:13px;font-family:"Public Sans",sans-serif;color:var(--ink-3);font-weight:600}
-      .pick-card p{font-size:13.5px;color:var(--ink-2);flex:1}
-      .pick-card .btn{width:100%}
-      .pay-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;align-items:start}
-      @media (max-width:900px){.pay-grid{grid-template-columns:1fr}}
-      .pay-panel,.status-panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
-      .pay-panel h3,.status-panel h3{font-size:18px;font-weight:800;margin-bottom:10px}
-      .pay-panel p{font-size:14.5px;color:var(--ink-2)}
-      .pay-detail{border:1.5px dashed var(--line);border-radius:13px;padding:14px 16px;margin:14px 0;font-size:14px;background:var(--surface-2);color:var(--ink-2);line-height:1.65}
-      .upload-label{display:flex;flex-direction:column;gap:4px;border:1.5px dashed var(--teal);border-radius:13px;padding:16px;text-align:center;cursor:pointer;background:var(--teal-soft);margin:14px 0}
-      .upload-label strong{font-size:14.5px;color:var(--teal)}
-      .upload-label span{font-size:12.5px;color:var(--ink-2)}
-      .proof-preview{margin-top:4px}
-      .proof-preview img{max-width:100%;max-height:220px;border-radius:11px;border:1px solid var(--line);margin:8px auto 0}
-      .proof-preview .fn{font-size:13px;font-weight:700;text-align:center}
-      .kv{margin:0;display:grid;gap:8px;font-size:14px}
-      .kv div{display:flex;justify-content:space-between;gap:12px}
-      .kv dt{color:var(--ink-3)}
-      .kv dd{margin:0;font-weight:700;text-align:right}
-      .pill{display:inline-block;font-size:12px;font-weight:800;padding:3px 10px;border-radius:99px}
-      .pill.warn{background:var(--amber-soft);color:var(--amber-deep)}
-      .pill.ok{background:var(--good-soft);color:var(--good)}
-      .pill.mut{background:var(--bg-soft);color:var(--ink-3)}
-      .status-list{list-style:none;margin:16px 0 0;padding:0;display:grid;font-size:14px}
-      .status-list li{display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line);align-items:flex-start}
-      .status-list li:last-child{border-bottom:0}
-      .status-list .dot{width:22px;height:22px;flex:none;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--ink-3);margin-top:1px}
-      .status-list li.done .dot{background:var(--good);border-color:var(--good);color:#fff}
-      .status-list li.now .dot{border-color:var(--amber);color:var(--amber-deep);background:var(--amber-soft)}
-      .status-list .lbl{color:var(--ink-2)}
-      .status-list li.done .lbl,.status-list li.now .lbl{color:var(--ink);font-weight:600}
 
       /* ---------- AI conversation session ---------- */
       .conv-setup{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
@@ -615,7 +506,7 @@
       .turn-scores{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
       .turn-scores span{font-size:12.5px;font-weight:800;border-radius:99px;padding:4px 10px;background:var(--bg-soft);color:var(--ink-2)}
 
-      /* ---------- dashboard (setelah login) ---------- */
+      /* ---------- dashboard ---------- */
       .dash-guest{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:clamp(24px,4vw,40px);text-align:center}
       .dash-guest h2{font-size:clamp(23px,3.6vw,30px);font-weight:800;margin-bottom:8px}
       .dash-guest p{color:var(--ink-2);max-width:480px;margin:0 auto 20px}
@@ -625,7 +516,6 @@
       .dash-greet{font-size:clamp(26px,4.4vw,36px);font-weight:800;letter-spacing:-.01em;flex:1;min-width:220px}
       .streak-pill{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:99px;padding:8px 15px;font-weight:800;font-size:14px;color:var(--ink)}
       .streak-pill svg{width:17px;height:17px;color:var(--amber)}
-      .dash-planline{margin-top:12px}
       .plan-card{display:flex;align-items:center;gap:clamp(18px,3.4vw,30px);flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:clamp(20px,3.4vw,28px);margin-bottom:16px}
       .plan-ring-wrap{position:relative;width:124px;height:124px;flex:none}
       .plan-ring{width:124px;height:124px;transform:rotate(-90deg)}
@@ -718,38 +608,21 @@
       .q-card p{font-size:14px;color:var(--ink-2)}
       .q-card .arr{font-size:13.5px;font-weight:800;color:var(--teal);margin-top:10px;display:inline-block}
 
-      /* ---------- pembedaan paket di dashboard (badge, upsell, gembok) ---------- */
+      /* ---------- fitur dashboard ---------- */
       .dash-hello-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-      .plan-chip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;letter-spacing:.03em;border-radius:99px;padding:5px 13px;border:1.5px solid transparent;line-height:1.3}
-      .plan-chip::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
-      .plan-chip.plan-gratis{background:var(--bg-soft);border-color:var(--line);color:var(--ink-2)}
-      .plan-chip.plan-premium{background:var(--amber);border-color:var(--amber);color:#231600}
-      .plan-chip.plan-paket_kerja{background:var(--good);border-color:var(--good);color:#fff}
-      :root[data-theme="dark"] .plan-chip.plan-paket_kerja{color:#0B1F16}
-      .dash-upsell{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:20px;padding:18px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
-      .dash-upsell .up-ic{width:44px;height:44px;flex:none;border-radius:13px;background:var(--amber);display:grid;place-items:center}
-      .dash-upsell .up-ic svg{width:23px;height:23px;color:#231600}
-      .dash-upsell p{flex:1;min-width:230px;font-size:15px;color:var(--ink)}
-      .dash-upsell p strong{color:var(--amber-deep)}
-      :root[data-theme="dark"] .dash-upsell p strong{color:var(--amber)}
-      .dash-upsell .btn{flex:none}
       .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
       @media (max-width:640px){.feat-grid{grid-template-columns:1fr}}
       .feat{display:flex;gap:13px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:15px;padding:15px 16px;color:var(--ink);text-decoration:none}
-      a.feat.locked:hover{border-color:var(--amber-deep)}
       .feat .fic{width:42px;height:42px;flex:none;border-radius:12px;display:grid;place-items:center}
       .feat .fic svg{width:22px;height:22px}
       .feat .fmid{display:flex;flex-direction:column;gap:2px;min-width:0}
       .feat .fname{font-weight:800;font-size:15px;line-height:1.3}
       .feat .fdesc{font-size:13px;color:var(--ink-2);line-height:1.45}
       .feat .fstat{font-size:12px;font-weight:800;margin-top:4px}
-      .feat.locked .fstat{color:var(--amber-deep)}
       .feat.open .fstat{color:var(--good)}
       .feat .flock{margin-left:auto;flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
       .feat .flock svg{width:18px;height:18px}
-      .feat.locked .flock{background:var(--amber-soft);color:var(--amber-deep)}
       .feat.open .flock{background:var(--good-soft);color:var(--good)}
-      .feat.locked .fname,.feat.locked .fdesc{opacity:.82}
     </style>
   </head>
   <body>
@@ -771,9 +644,6 @@
           <a href="#/percakapan" data-nav="percakapan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Percakapan AI</a>
           <a href="#/jalur-kerja" data-nav="jalur-kerja"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Jalur Kerja</a>
           <a href="#/ujian" data-nav="ujian"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>Ujian</a>
-          <a href="#/harga" data-nav="harga"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor"/></svg>Harga</a>
-          <a href="#/bayar" data-nav="bayar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Pilih Paket &amp; Bayar</a>
-          <a href="#/masuk" data-nav="masuk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg>Masuk / Daftar</a>
           <a href="#/disclaimer" data-nav="disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>Disclaimer</a>
         </nav>
         <div class="side-foot">
@@ -782,7 +652,11 @@
             <button type="button" data-theme-opt="dark" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>Gelap</button>
             <button type="button" data-theme-opt="system" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Sistem</button>
           </div>
-          <div class="side-profile" id="sideProfile"></div>
+          <div class="side-profile guest">
+            <span class="avatar" aria-hidden="true">L</span>
+            <span class="who"><span class="nm">Halo, Pelajar</span><span class="pl">Tanpa akun — langsung belajar</span></span>
+            <a class="btn btn-amber btn-sm out" href="#/dashboard">Dashboard</a>
+          </div>
         </div>
       </aside>
       <div class="content">
@@ -792,9 +666,9 @@
               <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M8.5 10.5c1.5 2 3 3 5 3.5"/></svg></span>
               <span class="name">Langkah<em>Lisan</em></span>
             </a>
-            <div class="nav-actions" id="authArea">
-              <a class="btn btn-ghost btn-sm" href="#/masuk">Masuk</a>
-              <a class="btn btn-amber btn-sm" href="#/masuk">Mulai Gratis</a>
+            <div class="nav-actions">
+              <a class="btn btn-ghost btn-sm" href="#/dashboard">Dashboard</a>
+              <a class="btn btn-amber btn-sm" href="#/demo">Mulai Gratis</a>
             </div>
             <button class="menu-btn" id="menuBtn" type="button" aria-label="Buka atau tutup menu navigasi" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
           </div>
@@ -809,9 +683,6 @@
               <a href="#/percakapan" data-nav="percakapan">Percakapan AI</a>
               <a href="#/jalur-kerja" data-nav="jalur-kerja">Jalur Kerja</a>
               <a href="#/ujian" data-nav="ujian">Ujian</a>
-              <a href="#/harga" data-nav="harga">Harga</a>
-              <a href="#/bayar" data-nav="bayar">Pilih Paket &amp; Bayar</a>
-              <a href="#/masuk" data-nav="masuk">Masuk / Daftar</a>
               <a href="#/disclaimer" data-nav="disclaimer">Disclaimer</a>
               <div class="theme-toggle" role="group" aria-label="Tema tampilan">
                 <button type="button" data-theme-opt="light" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>Terang</button>
@@ -1084,11 +955,11 @@
             <article class="f-card"><div class="n">MODUL 05</div><h3>Review SRS Otomatis</h3><p>Flashcard terbentuk otomatis dari materi yang sudah kamu pelajari, plus daftar “kata sulit” yang diprioritaskan untuk diulang.</p></article>
             <article class="f-card"><div class="n">MODUL 06</div><h3>Gamifikasi yang Menjaga Ritme</h3><p>XP, streak harian, liga mingguan, dan misi harian — pola yang terbukti membuatmu kembali belajar setiap hari.</p></article>
             <article class="f-card"><div class="n">MODUL 07</div><h3>Jalur Persiapan Ujian</h3><p>Bank soal + mock exam IELTS, TOEFL, JLPT, TOPIK, HSK, dan Goethe dengan prediksi skor dan analisis kelemahan per seksi.</p></article>
-            <article class="f-card"><div class="n">MODUL 08</div><h3>Jalur Siap Kerja ke Luar Negeri</h3><p>Paket khusus Jepang, Korea, dan Jerman: target ujian + kosakata vokasional bidang kerjamu. Fitur pembeda utama kami — lihat di bawah.</p></article>
+            <article class="f-card"><div class="n">MODUL 08</div><h3>Jalur Siap Kerja ke Luar Negeri</h3><p>Jalur khusus Jepang, Korea, dan Jerman: target ujian + kosakata vokasional bidang kerjamu. Fitur pembeda utama kami — lihat di bawah.</p></article>
             <article class="f-card"><div class="n">MODUL 09</div><h3>Kelas Live Hybrid</h3><p>Sesi percakapan terjadwal dengan tutor Bahasa Indonesia dalam grup kecil — untuk pendalaman, tanya-jawab, dan menjaga motivasi.</p></article>
             <article class="f-card"><div class="n">MODUL 10</div><h3>Dashboard Progres &amp; Sertifikat</h3><p>Peta progres CEFR yang jelas, dan sertifikat digital terverifikasi berkode cek di setiap kenaikan level — siap dilampirkan ke portofolio kerja.</p></article>
             <article class="f-card"><div class="n">HEMAT DATA</div><h3>Mode Offline &amp; Audio-First</h3><p>Unduh pelajaran untuk belajar tanpa sinyal; mode audio-first menghemat kuota — dirancang untuk kondisi internet Indonesia.</p></article>
-            <article class="f-card"><div class="n">UNTUK LEMBAGA</div><h3>Paket Korporat &amp; LPK</h3><p>Untuk perusahaan dan lembaga pelatihan kerja: kurikulum bahasa per kelas peserta, laporan progres, dan penagihan per seat.</p></article>
+            <article class="f-card"><div class="n">UNTUK LEMBAGA</div><h3>Untuk Lembaga &amp; LPK</h3><p>Untuk perusahaan dan lembaga pelatihan kerja: kurikulum bahasa per kelas peserta dan laporan progres.</p></article>
           </div>
         </div>
       </section>
@@ -1213,129 +1084,16 @@
         <div class="wrap">
           <div class="sec-head">
             <span class="kicker">Cara Kerjanya</span>
-            <h2>Dari daftar sampai mahir, dalam enam langkah</h2>
+            <h2>Dari langkah pertama sampai mahir, dalam enam langkah</h2>
           </div>
           <div class="journey">
-            <article class="j-step"><div class="num">1</div><h3>Daftar Gratis</h3><p>Cukup nomor HP atau email. Tanpa kartu kredit, tanpa komitmen.</p></article>
+            <article class="j-step"><div class="num">1</div><h3>Mulai Tanpa Akun</h3><p>Pilih bahasa dan levelmu, lalu langsung belajar. Tanpa kartu kredit, tanpa komitmen.</p></article>
             <article class="j-step"><div class="num">2</div><h3>Tes Penempatan ±15 Menit</h3><p>Tes adaptif memetakan level CEFR awalmu — pemula total pun mulai dari titik yang tepat, bukan dari tebak-tebakan.</p></article>
             <article class="j-step"><div class="num">3</div><h3>Pilih Tujuanmu</h3><p>Kerja ke luar negeri, kuliah, karier, atau hobi — jalur belajarmu disusun mengikuti tujuan itu.</p></article>
             <article class="j-step"><div class="num">4</div><h3>Ikuti Loop Harian</h3><p>Pelajaran 10–15 menit + review SRS + latihan bicara. Streak dan misi harian menjaga ritmemu.</p></article>
             <article class="j-step"><div class="num">5</div><h3>Tes Kenaikan Level</h3><p>Di akhir tiap level: tes menyeluruh dan sertifikat digital CEFR terverifikasi untuk portofoliomu.</p></article>
             <article class="j-step"><div class="num">6</div><h3>Ambil Ujian Resminya</h3><p>Di B1/B2 kamu diarahkan ke jalur ujian resmi (IELTS/JLPT/TOPIK/HSK/Goethe) dan kelas live untuk pemantapan akhir.</p></article>
           </div>
-        </div>
-      </section>
-
-      <!-- PRICING -->
-      <section id="harga" style="padding-top:8px" data-page="harga">
-        <div class="wrap">
-          <div class="sec-head">
-            <span class="kicker">Harga</span>
-            <h2>Harga lokal yang masuk akal untuk kantong Indonesia</h2>
-            <p>Pasar Indonesia sangat sensitif harga — jadi tingkat gratis kami benar-benar berguna, dan Premium dihargai dalam rupiah, bukan dolar.</p>
-          </div>
-          <div class="price-toggle" role="group" aria-label="Periode pembayaran">
-            <button type="button" id="btnMonthly" aria-pressed="true">Bulanan</button>
-            <button type="button" id="btnYearly" aria-pressed="false">Tahunan<span class="save">−33%</span></button>
-          </div>
-          <div class="price-grid">
-            <article class="p-card">
-              <h3>Gratis</h3>
-              <p class="who">Untuk memulai &amp; membuktikan sendiri</p>
-              <div class="price">Rp0</div>
-              <p class="per">selamanya</p>
-              <ul>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1 bahasa pilihan</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pelajaran harian + review SRS dasar</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tes penempatan &amp; peta level</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Streak, XP &amp; misi harian</li>
-                <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Tutor AI &amp; skor pengucapan penuh</li>
-                <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Sertifikat level terverifikasi</li>
-              </ul>
-              <a class="btn btn-ghost" href="#/masuk">Mulai Gratis — Buat Akun</a>
-            </article>
-            <article class="p-card hot">
-              <span class="badge">PALING DIPILIH</span>
-              <h3>Premium</h3>
-              <p class="who">Untuk pembelajar serius A1–C2</p>
-              <div class="price" id="premiumPrice">Rp99.000<small> /bulan</small></div>
-              <p class="per" id="premiumPer">dibayar bulanan · berhenti kapan saja</p>
-              <ul>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Semua 5 bahasa, level A1–C2 penuh</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tutor percakapan AI tanpa batas</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Penilaian pengucapan per fonem</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sertifikat CEFR digital terverifikasi</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Mode offline &amp; tanpa iklan</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kelas live grup kecil bisa ditambah Rp50–100 ribu/sesi</li>
-              </ul>
-              <a class="btn btn-amber" href="#/bayar?paket=premium">Pilih Premium</a>
-            </article>
-            <article class="p-card">
-              <h3>Paket Siap Kerja</h3>
-              <p class="who">Untuk calon pekerja Jepang / Korea / Jerman</p>
-              <div class="price">Rp499.000<small> /paket</small></div>
-              <p class="per">sekali bayar per jalur negara</p>
-              <ul>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Semua fitur Premium selama masa paket</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Jalur khusus: JLPT N4–N3 / EPS-TOPIK / Goethe B1</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bank soal + mock exam berformat resmi</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kosakata vokasional bidang kerjamu</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Simulasi wawancara kerja dengan tutor AI</li>
-              </ul>
-              <a class="btn btn-teal" href="#/bayar?paket=paket_kerja">Pilih Paket Siap Kerja</a>
-            </article>
-          </div>
-          <p class="pay-note">Pembayaran: QRIS, e-wallet, transfer bank, dan pulsa. Harga di halaman ini adalah konsep dalam rentang hasil riset pasar (Premium Rp75–150 ribu/bulan; paket ujian/kerja Rp300–800 ribu) — bukan penawaran nyata. Untuk lembaga &amp; perusahaan: paket B2B per seat per tahun, hubungi tim kami.</p>
-        </div>
-      </section>
-
-      <!-- COMPARISON -->
-      <section id="banding" style="padding-top:8px" data-page="harga">
-        <div class="wrap">
-          <div class="sec-head">
-            <span class="kicker">Posisi Kami</span>
-            <h2>Kenapa bukan sekadar aplikasi global?</h2>
-            <p>Perbandingan jujur berdasarkan riset pasar 18 Oktober 2026 — setiap pemain punya keunggulan masing-masing; celahnya ada di kombinasi untuk Indonesia.</p>
-          </div>
-          <div class="compare-grid">
-            <article class="c-card us">
-              <h3>LangkahLisan</h3>
-              <p class="pos">Kurikulum mandiri + hybrid, dirancang untuk Indonesia</p>
-              <dl>
-                <div><dt>Kurikulum A1–C2</dt><dd class="yes">Lengkap</dd></div>
-                <div><dt>Pengantar Bahasa Indonesia</dt><dd class="yes">Penuh</dd></div>
-                <div><dt>Jalur kerja ke luar negeri</dt><dd class="yes">Ada (JP/KR/DE)</dd></div>
-                <div><dt>Kelas live tutor</dt><dd class="yes">Add-on</dd></div>
-                <div><dt>Sertifikat per level</dt><dd class="yes">CEFR terverifikasi</dd></div>
-                <div><dt>Harga premium</dt><dd>Rp99 rb/bln (konsep)</dd></div>
-              </dl>
-            </article>
-            <article class="c-card">
-              <h3>Duolingo</h3>
-              <p class="pos">Gamifikasi freemium global, 40+ bahasa</p>
-              <dl>
-                <div><dt>Kurikulum A1–C2</dt><dd class="mid">Umumnya s.d. B2</dd></div>
-                <div><dt>Pengantar Bahasa Indonesia</dt><dd class="mid">Terbatas per kursus</dd></div>
-                <div><dt>Jalur kerja ke luar negeri</dt><dd class="no">Tidak ada</dd></div>
-                <div><dt>Kelas live tutor</dt><dd class="no">Tidak ada</dd></div>
-                <div><dt>Sertifikat per level</dt><dd class="no">Tidak ada</dd></div>
-                <div><dt>Harga premium</dt><dd>Super ±US$84–96/thn</dd></div>
-              </dl>
-            </article>
-            <article class="c-card">
-              <h3>Cakap</h3>
-              <p class="pos">Kelas live online Indonesia, 4 juta+ pengguna</p>
-              <dl>
-                <div><dt>Kurikulum A1–C2</dt><dd class="mid">Berbasis kelas live</dd></div>
-                <div><dt>Pengantar Bahasa Indonesia</dt><dd class="yes">Ya</dd></div>
-                <div><dt>Jalur kerja ke luar negeri</dt><dd class="mid">Persiapan ujian saja</dd></div>
-                <div><dt>Kelas live tutor</dt><dd class="yes">Inti layanan</dd></div>
-                <div><dt>Sertifikat per level</dt><dd class="mid">Lewat kelas ujian</dd></div>
-                <div><dt>Harga premium</dt><dd>Tidak dipublikasikan*</dd></div>
-              </dl>
-            </article>
-          </div>
-          <p class="src">*Harga Cakap saat ini tidak dipublikasikan (angka 2020 sudah usang) sehingga belum terverifikasi. Sebagai jangkar harga pasar: program imersif Kampung Inggris Pare mulai ±Rp200 ribu per 2 minggu; aplikasi AI speaking Stimuler laku di Indonesia pada US$5–7/bulan.</p>
         </div>
       </section>
 
@@ -1413,18 +1171,12 @@
 
           <div class="summary-panel hidden" id="convSummary" aria-live="polite"></div>
 
-          <p class="src" style="margin-top:18px">Cara kerja versi produksi (belum aktif di mockup ini): percakapan bebas tanpa skenario tetap, koreksi grammar &amp; pilihan kata dari model AI, skor pengucapan per fonem dari rekaman suara, dan riwayat sesi tersimpan di akunmu. Di mockup ini semua itu disimulasikan lokal agar alur &amp; tampilannya bisa dicoba sekarang.</p>
+          <p class="src" style="margin-top:18px">Cara kerja versi produksi (belum aktif di mockup ini): percakapan bebas tanpa skenario tetap, koreksi grammar &amp; pilihan kata dari model AI, skor pengucapan per fonem dari rekaman suara. Di mockup ini semua itu disimulasikan lokal agar alur &amp; tampilannya bisa dicoba sekarang, dan sesi tidak tersimpan.</p>
         </div>
       </section>
-      <!-- DASHBOARD (tampil setelah login) -->
+      <!-- DASHBOARD -->
       <section id="dashboard" data-page="dashboard">
         <div class="wrap">
-          <div id="dashGuest" class="dash-guest hidden">
-            <h2>Dashboard belajarmu ada di dalam</h2>
-            <p>Masuk dulu untuk melihat jalur progres CEFR-mu, menjaga streak harian, dan mengerjakan tugas belajar hari ini.</p>
-            <a class="btn btn-amber" href="#/masuk">Masuk / Daftar</a>
-          </div>
-
           <div id="dashMain">
             <div class="dash-top">
               <p class="dash-date" id="dashDate"></p>
@@ -1432,7 +1184,6 @@
                 <h2 class="dash-greet" id="dashHello">Halo!</h2>
                 <span class="streak-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 4-3 5.5-3 9a3 3 0 0 0 6 0c0-1-.5-1.8-1-2.5 2 .8 4 2.8 4 5.5A6 6 0 0 1 6 15c0-5 5-7 6-13z"/></svg>0 hari</span>
               </div>
-              <div class="dash-planline"><span class="plan-chip plan-gratis" id="dashPlanChip">Gratis</span></div>
             </div>
 
             <div class="plan-card">
@@ -1476,12 +1227,6 @@
                 <div class="sc-val">0 <small>kata</small></div>
                 <div class="sc-sub">Terisi dari review SRS pertamamu</div>
               </div>
-            </div>
-
-            <div class="dash-upsell hidden" id="dashUpsell">
-              <span class="up-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.735H5.81a1 1 0 0 1-.957-.735L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg></span>
-              <p><strong>Kamu masih pakai paket Gratis</strong> — buka 5 bahasa + tutor AI tanpa batas dengan Premium, mulai Rp99.000/bulan.</p>
-              <a class="btn btn-amber btn-sm" href="#/bayar">Lihat Paket</a>
             </div>
 
             <div class="dash-card">
@@ -1560,7 +1305,7 @@
 
             <div class="dash-card">
               <div class="dash-card-head">
-                <h3>Fitur Premium</h3>
+                <h3>Fitur Belajar</h3>
                 <span class="hint" id="dashFeatHint"></span>
               </div>
               <div class="feat-grid" id="dashFeatures"></div>
@@ -1591,102 +1336,6 @@
         </div>
       </section>
 
-      <!-- LOGIN PAGE -->
-      <section id="masuk" data-page="masuk">
-        <div class="wrap auth-wrap">
-          <div class="auth-card">
-            <div id="authFormWrap">
-              <span class="kicker">Akun LangkahLisan</span>
-              <h2 id="authTitle">Masuk ke akunmu</h2>
-              <p class="auth-sub" id="authSub">Lanjutkan progres belajarmu, jaga streak-mu, dan buka paket belajarmu.</p>
-              <div class="auth-tabs" role="group" aria-label="Mode masuk atau daftar">
-                <button type="button" id="tabMasuk" aria-pressed="true">Masuk</button>
-                <button type="button" id="tabDaftar" aria-pressed="false">Daftar</button>
-              </div>
-              <form id="authForm" novalidate>
-                <div class="field hidden" id="usernameField">
-                  <label for="authUsername">Nama pengguna</label>
-                  <input id="authUsername" type="text" autocomplete="username" placeholder="mis. sari_w" />
-                </div>
-                <div class="field">
-                  <label for="authEmail">Email</label>
-                  <input id="authEmail" type="email" autocomplete="email" placeholder="nama@email.com" />
-                </div>
-                <div class="field">
-                  <label for="authPassword">Password</label>
-                  <input id="authPassword" type="password" autocomplete="current-password" placeholder="Minimal 6 karakter" />
-                </div>
-                <button class="btn btn-amber auth-submit" type="submit" id="authSubmit">Masuk</button>
-                <p class="form-msg" id="authMsg" aria-live="polite"></p>
-              </form>
-              <div class="or"><span>atau</span></div>
-              <button type="button" class="btn-google" id="googleBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.45a5.52 5.52 0 0 1-2.4 3.58v2.97h3.88c2.27-2.09 3.57-5.17 3.57-8.74z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-2.97c-1.07.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.28v3.07A11.99 11.99 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.32A7.2 7.2 0 0 1 4.91 12c0-.81.14-1.59.38-2.32V6.61H1.28a12 12 0 0 0 0 10.78l4.01-3.07z"/><path fill="#EA4335" d="M12 4.73c1.76 0 3.35.61 4.6 1.8l3.44-3.44A11.98 11.98 0 0 0 12 0 11.99 11.99 0 0 0 1.28 6.61l4.01 3.07C6.23 6.84 8.88 4.73 12 4.73z"/></svg>Masuk dengan Google</button>
-              <p class="auth-note">Login Google memakai provider Google di Supabase Auth project web bahasa (diaktifkan dari dashboard: Authentication → Providers → Google).</p>
-            </div>
-            <div id="loggedInBox" class="hidden">
-              <span class="kicker">Kamu Sudah Masuk</span>
-              <h2 id="liTitle">Halo!</h2>
-              <p class="auth-sub" id="liInfo"></p>
-              <div class="demo-actions" style="margin-top:6px">
-                <a class="btn btn-teal" href="#/dashboard">Ke Dashboard Belajar</a>
-                <a class="btn btn-amber" href="#/bayar">Pilih / Upgrade Paket</a>
-                <a class="btn btn-ghost" href="#/demo">Lanjut Belajar</a>
-                <button type="button" class="btn btn-ghost" id="logoutBtn2">Keluar</button>
-              </div>
-            </div>
-            <div class="config-box" id="configStatus"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PAYWALL PAGE -->
-      <section id="bayar" data-page="bayar">
-        <div class="wrap">
-          <div class="sec-head">
-            <span class="kicker">Paywall — Pilih Paket &amp; Bayar</span>
-            <h2>Selesaikan pendaftaran paketmu</h2>
-            <p>Alurnya mengikuti pola Portal Beasiswa: pilih paket → bayar manual via QRIS/transfer → upload bukti pembayaran → admin memverifikasi → akses paket terbuka di akunmu.</p>
-          </div>
-          <div class="flow-steps" aria-label="Alur pembayaran">
-            <div class="flow-step"><span class="n">1</span><div><strong>Pilih paket</strong>Gratis, Premium, atau Paket Siap Kerja.</div></div>
-            <div class="flow-step"><span class="n">2</span><div><strong>Bayar manual</strong>QRIS atau transfer ke tujuan pembayaran yang ditampilkan.</div></div>
-            <div class="flow-step"><span class="n">3</span><div><strong>Upload bukti</strong>Screenshot/foto bukti bayar dikirim dari halaman ini.</div></div>
-            <div class="flow-step"><span class="n">4</span><div><strong>Verifikasi &amp; akses</strong>Admin memeriksa bukti; setelah lolos, paket aktif.</div></div>
-          </div>
-          <div class="plan-pick" id="planPick">
-            <article class="pick-card" data-plan-card="gratis">
-              <h3>Gratis</h3>
-              <div class="pp">Rp0 <small>selamanya</small></div>
-              <p>1 bahasa pilihan, pelajaran harian + SRS dasar, tes penempatan &amp; peta level. Tanpa pembayaran — cukup punya akun.</p>
-              <button type="button" class="btn btn-ghost" data-plan-btn="gratis">Pilih Paket Gratis</button>
-            </article>
-            <article class="pick-card" data-plan-card="premium">
-              <h3>Premium</h3>
-              <div class="pp">Rp99.000 <small>/bulan · atau Rp790.000/tahun</small></div>
-              <p>Semua 5 bahasa A1–C2, tutor AI tanpa batas, skor pengucapan per fonem, sertifikat CEFR terverifikasi, mode offline.</p>
-              <button type="button" class="btn btn-amber" data-plan-btn="premium">Pilih Premium</button>
-            </article>
-            <article class="pick-card" data-plan-card="paket_kerja">
-              <h3>Paket Siap Kerja</h3>
-              <div class="pp">Rp499.000 <small>sekali bayar / jalur negara</small></div>
-              <p>Semua fitur Premium + jalur khusus JLPT N4–N3 / EPS-TOPIK / Goethe B1, bank soal &amp; mock exam resmi, kosakata vokasional.</p>
-              <button type="button" class="btn btn-teal" data-plan-btn="paket_kerja">Pilih Paket Siap Kerja</button>
-            </article>
-          </div>
-          <div class="pay-grid">
-            <div class="pay-panel">
-              <h3>Pembayaran</h3>
-              <div id="payBody"></div>
-            </div>
-            <aside class="status-panel" aria-label="Status akun dan verifikasi">
-              <h3>Status Akun</h3>
-              <div id="statusBody"></div>
-            </aside>
-          </div>
-          <p class="src">Skema data di Supabase (pola yang sama dengan Portal Beasiswa): tabel <strong>profiles</strong> (id, username, plan: gratis / premium / paket_kerja, verified), tabel <strong>verifikasi</strong> (user_id, paket, proof_url, status), dan bucket storage <strong>“bukti-pembayaran”</strong> untuk file bukti. Akses paket terbuka hanya setelah admin mengubah status verifikasi — tidak ada aktivasi otomatis hanya dari upload bukti.</p>
-        </div>
-      </section>
-
       <!-- DISCLAIMER PAGE -->
       <section id="disclaimer" data-page="disclaimer">
         <div class="wrap legal">
@@ -1697,7 +1346,8 @@
           </div>
           <p><strong>LangkahLisan adalah nama dan konsep produk fiktif</strong> untuk keperluan mockup. Website ini adalah purwarupa tampilan &amp; alur — bukan layanan yang sudah beroperasi, dan tidak ada transaksi nyata yang terjadi di dalamnya.</p>
           <p>Angka pasar, jam belajar, format ujian, dan temuan studi yang dikutip di halaman-halaman website ini berasal dari riset web tanggal 18 Oktober 2026 — antara lain panduan jam belajar Cambridge English, data pasar Duolingo 2026, dan studi hybrid Leanlab/Preply 2026.</p>
-          <p>Harga yang tampil adalah <strong>konsep dalam rentang hasil riset, bukan penawaran nyata</strong> — termasuk harga paket di halaman Harga dan Paywall.</p>
+          <p>Website ini <strong>tidak menampilkan harga atau paket berbayar</strong> — semua fitur yang ditampilkan dapat dicoba tanpa pembayaran.</p>
+          <p>Website ini juga <strong>tidak memakai sistem akun</strong>: tidak ada pendaftaran atau masuk, dan progres belajar tidak tersimpan antar-kunjungan. Pilihan bahasa dan tema hanya tersimpan di browser perangkat ini.</p>
           <p>Beberapa hal belum terverifikasi dan ditandai di tempatnya:</p>
           <ul>
             <li>Harga Cakap &amp; English Academy tidak dipublikasikan oleh penyedianya.</li>
@@ -1717,7 +1367,6 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script>
     (function(){
       "use strict";
@@ -1871,10 +1520,7 @@
         renderDemo();
       }
       function backLink(){
-        var logged = (typeof state !== "undefined" && state && state.user);
-        return logged
-          ? '<a class="btn btn-ghost" href="#/dashboard">Kembali ke Dashboard</a>'
-          : '<a class="btn btn-ghost" href="#/">Kembali ke Beranda</a>';
+        return '<a class="btn btn-ghost" href="#/dashboard">Kembali ke Dashboard</a>';
       }
 
       langKeys.forEach(function(k){
@@ -2308,60 +1954,6 @@
 
       renderDemo();
 
-      /* ============================================================
-         SUPABASE_CONFIG — KONFIGURASI DATABASE
-         ------------------------------------------------------------
-         MODE: PRODUKSI — terhubung sungguhan ke Supabase.
-         Tidak ada mode simulasi dan tidak ada jalur yang mem-bypass
-         Supabase: daftar/masuk memakai Supabase Auth, bukti
-         pembayaran ter-upload ke bucket 'bukti-pembayaran' dan
-         tercatat di tabel 'verifikasi', dan status paket dibaca dari
-         tabel 'profiles' (akses terbuka hanya setelah admin
-         memverifikasi — tidak ada aktivasi otomatis dari upload).
-         Alurnya mengikuti pola Portal Beasiswa.
-
-         Project Supabase di bawah ini khusus web bahasa (terpisah
-         dari project Portal Beasiswa).
-
-         Skema tabel yang dipakai (pola sama seperti Portal Beasiswa):
-           profiles   (id uuid pk → auth.users, username text,
-                       plan text: 'gratis' | 'premium' | 'paket_kerja',
-                       verified boolean default false)
-           verifikasi (id, user_id → profiles.id, paket text,
-                       proof_url text, status text default 'menunggu')
-           storage bucket: 'bukti-pembayaran' (tempat file bukti bayar)
-
-         Login Google: aktifkan di dashboard Supabase →
-         Authentication → Providers → Google.
-         ============================================================ */
-      var SUPABASE_CONFIG = {
-        url: "https://yvwkmhdqmcztneeeeppf.supabase.co",
-        publishableKey: "sb_publishable_E7l9VpsbrdfgaGfcoJNYIg_akYeLNLo"
-      };
-
-      function configFilled(){
-        return SUPABASE_CONFIG.url.indexOf("https://") === 0 &&
-               SUPABASE_CONFIG.url.indexOf("ISI_") !== 0 &&
-               SUPABASE_CONFIG.publishableKey.length >= 20 &&
-               SUPABASE_CONFIG.publishableKey.indexOf("ISI_") !== 0;
-      }
-      var sbClient = null;
-      function getSB(){
-        if(!configFilled() || typeof window === "undefined" || !window.supabase) return null;
-        if(!sbClient){
-          try{ sbClient = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.publishableKey); }
-          catch(e){ return null; }
-        }
-        return sbClient;
-      }
-
-      /* ---------- App state (in-memory only, resets on reload) ---------- */
-      var PLANS = {
-        gratis:{ name:"Gratis", priceText:"Rp0", per:"selamanya" },
-        premium:{ name:"Premium", priceText:"Rp99.000", per:"/bulan · atau Rp790.000/tahun" },
-        paket_kerja:{ name:"Paket Siap Kerja", priceText:"Rp499.000", per:"sekali bayar per jalur negara" }
-      };
-      var state = { user:null, plan:"gratis", planActive:false, verified:false, pending:null };
       /* ---------- Bahasa pilihan dashboard (tersimpan di browser) ---------- */
       var DASH_LANGS = {
         inggris:"Bahasa Inggris", jepang:"Bahasa Jepang", mandarin:"Bahasa Mandarin",
@@ -2392,8 +1984,6 @@
         renderLangSelect();
         location.hash = "#/dashboard";
       });
-      var selectedPlan = "premium";
-      var proofFile = null;
 
       /* ---------- Router (multi-page via hash) ---------- */
       var TITLES = {
@@ -2405,9 +1995,6 @@
         percakapan:"Sesi Percakapan AI — LangkahLisan",
         "jalur-kerja":"Jalur Siap Kerja ke Luar Negeri — LangkahLisan",
         ujian:"Persiapan Ujian Resmi — LangkahLisan",
-        harga:"Harga — LangkahLisan",
-        masuk:"Masuk / Daftar — LangkahLisan",
-        bayar:"Pilih Paket & Bayar — LangkahLisan",
         disclaimer:"Disclaimer — LangkahLisan",
         dashboard:"Dashboard Belajar — LangkahLisan"
       };
@@ -2419,13 +2006,10 @@
         percakapan:"Percakapan AI",
         "jalur-kerja":"Jalur Kerja",
         ujian:"Ujian",
-        harga:"Harga",
-        masuk:"Masuk / Daftar",
-        bayar:"Pilih Paket & Bayar",
         disclaimer:"Disclaimer",
         dashboard:"Dashboard"
       };
-      var KNOWN = ["bahasa","level","metode","demo","percakapan","jalur-kerja","ujian","harga","masuk","bayar","disclaimer","dashboard"];
+      var KNOWN = ["bahasa","level","metode","demo","percakapan","jalur-kerja","ujian","disclaimer","dashboard"];
       function currentRoute(){
         var h = (location.hash || "#/").replace(/^#\/?/, "");
         var parts = h.split("?");
@@ -2457,7 +2041,6 @@
         if(mn) mn.classList.remove("open");
         var mb = document.getElementById("menuBtn");
         if(mb) mb.setAttribute("aria-expanded","false");
-        if(r.page === "bayar" && r.query.paket && PLANS[r.query.paket]) selectPlan(r.query.paket);
         if(r.page === "dashboard") renderDashboard();
         if(r.page === "bahasa") renderLangSelect();
         window.scrollTo(0, 0);
@@ -2510,257 +2093,45 @@
         }catch(e){ dashDateEl.textContent = ""; }
       }
 
-      /* ---------- Config status (Login page) ---------- */
-      function renderConfigStatus(){
-        var el = document.getElementById("configStatus");
-        if(!el) return;
-        var filled = configFilled();
-        var status = !filled ? "Belum terhubung — konfigurasi kosong"
-          : "Terhubung ke Supabase (project web bahasa)";
-        el.innerHTML =
-          '<div class="row"><span>Project URL</span><code>' + SUPABASE_CONFIG.url + '</code></div>' +
-          '<div class="row"><span>Publishable key</span><code>' + (filled ? "•••••••••• (tersimpan di kode)" : SUPABASE_CONFIG.publishableKey) + '</code></div>' +
-          '<div class="row"><span>Status</span><span class="st" style="color:' + (filled ? "var(--good)" : "var(--amber-deep)") + '">' + status + '</span></div>' +
-          '<p style="margin-top:8px">Daftar, masuk, dan upload bukti pembayaran di halaman ini terhubung langsung ke project Supabase web bahasa di atas.</p>';
-      }
-
-      /* ---------- Auth (Login page + header) ---------- */
-      var authMode = "masuk";
-      var authMsgEl = document.getElementById("authMsg");
-      function setAuthMsg(msg, cls){
-        authMsgEl.textContent = msg;
-        authMsgEl.className = "form-msg" + (cls ? " " + cls : "");
-      }
-      function setAuthMode(m){
-        authMode = m;
-        document.getElementById("tabMasuk").setAttribute("aria-pressed", m === "masuk" ? "true" : "false");
-        document.getElementById("tabDaftar").setAttribute("aria-pressed", m === "daftar" ? "true" : "false");
-        document.getElementById("usernameField").classList.toggle("hidden", m === "masuk");
-        document.getElementById("authTitle").textContent = m === "masuk" ? "Masuk ke akunmu" : "Buat akun barumu";
-        document.getElementById("authSub").textContent = m === "masuk"
-          ? "Lanjutkan progres belajarmu, jaga streak-mu, dan buka paket belajarmu."
-          : "Gratis untuk mulai — akun pertamamu langsung berpaket Gratis, bisa upgrade kapan saja.";
-        document.getElementById("authSubmit").textContent = m === "masuk" ? "Masuk" : "Buat Akun Gratis";
-        document.getElementById("authPassword").setAttribute("autocomplete", m === "masuk" ? "current-password" : "new-password");
-        setAuthMsg("", "");
-      }
-      document.getElementById("tabMasuk").addEventListener("click", function(){ setAuthMode("masuk"); });
-      document.getElementById("tabDaftar").addEventListener("click", function(){ setAuthMode("daftar"); });
-
-      function renderAuthArea(){
-        var area = document.getElementById("authArea");
-        if(state.user){
-          area.innerHTML = '<span class="user-chip"><span>' + state.user.email + '</span></span><a class="btn btn-teal btn-sm btn-dash" href="#/dashboard">Dashboard</a><button type="button" class="btn btn-ghost btn-sm" id="logoutBtn">Keluar</button>';
-          document.getElementById("logoutBtn").addEventListener("click", doLogout);
-        } else {
-          area.innerHTML = '<a class="btn btn-ghost btn-sm" href="#/masuk">Masuk</a><a class="btn btn-amber btn-sm" href="#/masuk">Mulai Gratis</a>';
-        }
-      }
-      function renderSideProfile(){
-        var el = document.getElementById("sideProfile");
-        if(!el) return;
-        if(state.user){
-          el.classList.remove("guest");
-          var paidP = state.planActive && state.plan !== "gratis";
-          var planName = paidP ? PLANS[state.plan].name : "Gratis";
-          var nm = state.user.username || state.user.email || "Pelajar";
-          el.innerHTML = '<span class="avatar" aria-hidden="true"></span><span class="who"><span class="nm"></span><span class="pl"></span></span><button type="button" class="btn btn-ghost btn-sm out" id="logoutBtnS">Keluar</button>';
-          el.querySelector(".avatar").textContent = nm.charAt(0).toUpperCase();
-          el.querySelector(".nm").textContent = nm;
-          el.querySelector(".nm").title = nm;
-          el.querySelector(".pl").textContent = planName.indexOf("Paket") === 0 ? planName : "Paket " + planName;
-          document.getElementById("logoutBtnS").addEventListener("click", doLogout);
-        } else {
-          el.innerHTML = '<span class="avatar" aria-hidden="true">?</span><span class="who"><span class="nm">Halo, Tamu</span><span class="pl">Belum masuk</span></span><a class="btn btn-amber btn-sm out" href="#/masuk">Masuk / Daftar</a>';
-          el.classList.add("guest");
-        }
-      }
-      function renderAuthPage(){
-        renderSideProfile();
-        var formWrap = document.getElementById("authFormWrap");
-        var box = document.getElementById("loggedInBox");
-        if(state.user){
-          formWrap.classList.add("hidden");
-          box.classList.remove("hidden");
-          document.getElementById("liTitle").textContent = "Halo, " + (state.user.username || state.user.email) + "!";
-          document.getElementById("liInfo").textContent = "Kamu masuk sebagai " + state.user.email + ". Paket saat ini: " +
-            (state.planActive ? PLANS[state.plan].name + " (aktif)" : "belum ada paket aktif") +
-            ".";
-        } else {
-          formWrap.classList.remove("hidden");
-          box.classList.add("hidden");
-        }
-      }
-      function afterLogin(){
-        renderAuthArea(); renderAuthPage(); renderPayBody(); renderStatus();
-        /* Pola Duolingo/Stimuler: setelah masuk, user mendarat di
-           dashboard perjalanan belajar — bukan di Beranda marketing. */
-        if(currentRoute().page !== "dashboard") location.hash = "#/dashboard";
-      }
-      function doLogout(){
-        var sb = getSB();
-        if(sb && sb.auth) { try{ sb.auth.signOut(); }catch(e){} }
-        state.user = null; state.plan = "gratis"; state.planActive = false; state.verified = false; state.pending = null; proofFile = null;
-        renderAuthArea(); renderAuthPage(); renderPayBody(); renderStatus();
-        if(currentRoute().page !== "home") location.hash = "#/";
-      }
-      document.getElementById("logoutBtn2").addEventListener("click", doLogout);
-
-      document.getElementById("authForm").addEventListener("submit", function(e){
-        e.preventDefault();
-        var email = document.getElementById("authEmail").value.trim();
-        var password = document.getElementById("authPassword").value;
-        var username = document.getElementById("authUsername").value.trim();
-        if(email.indexOf("@") < 1 || email.indexOf(".") < 0){ setAuthMsg("Format email belum benar — periksa lagi ya.", "no"); return; }
-        if(password.length < 6){ setAuthMsg("Password minimal 6 karakter.", "no"); return; }
-        if(authMode === "daftar" && !username){ setAuthMsg("Nama pengguna wajib diisi untuk pendaftaran.", "no"); return; }
-        var sb = getSB();
-        if(sb){
-          setAuthMsg("Menghubungi Supabase…", "");
-          var prom = authMode === "daftar"
-            ? sb.auth.signUp({ email: email, password: password, options: { data: { username: username } } })
-            : sb.auth.signInWithPassword({ email: email, password: password });
-          prom.then(function(res){
-            if(res.error){ setAuthMsg("Supabase: " + res.error.message, "no"); return; }
-            var u = res.data && res.data.user;
-            if(authMode === "daftar" && u && !res.data.session){
-              setAuthMsg("Akun dibuat di Supabase. Cek inbox email " + email + " untuk tautan konfirmasi, lalu masuk dari tab Masuk.", "ok");
-              return;
-            }
-            state.user = { id: u ? u.id : null, email: email, username: (u && u.user_metadata && u.user_metadata.username) || username || email.split("@")[0] };
-            afterLogin();
-            syncAccount();
-          }).catch(function(err){ setAuthMsg("Gagal terhubung ke Supabase: " + err.message, "no"); });
-        } else {
-          setAuthMsg("Tidak dapat terhubung ke Supabase. Periksa koneksi internetmu, lalu coba lagi.", "no");
-        }
-      });
-
-      document.getElementById("googleBtn").addEventListener("click", function(){
-        var sb = getSB();
-        if(sb){
-          sb.auth.signInWithOAuth({ provider: "google" }).then(function(res){
-            if(res.error) setAuthMsg("Supabase: " + res.error.message, "no");
-          });
-        } else {
-          setAuthMsg("Tidak dapat terhubung ke Supabase. Periksa koneksi internetmu, lalu coba lagi.", "no");
-        }
-      });
-
-      /* ---------- Sinkronisasi akun dari Supabase (profiles + verifikasi) ---------- */
-      function syncAccount(){
-        var sb = getSB();
-        if(!sb || !state.user || !state.user.id) return;
-        sb.from("profiles").select("username, plan, verified").eq("id", state.user.id).maybeSingle().then(function(res){
-          if(res.data){
-            if(res.data.username) state.user.username = res.data.username;
-            state.verified = !!res.data.verified;
-            if(res.data.verified && res.data.plan && PLANS[res.data.plan]){
-              state.plan = res.data.plan;
-              state.planActive = true;
-              state.pending = null;
-            }
-            renderAuthArea(); renderAuthPage(); renderPayBody(); renderStatus(); renderDashboard();
-          }
-        }).catch(function(){});
-        sb.from("verifikasi").select("paket, proof_url, status").eq("user_id", state.user.id).order("created_at", { ascending:false }).limit(1).then(function(res){
-          var row = res.data && res.data[0];
-          if(row && row.status === "menunggu" && PLANS[row.paket]){
-            state.pending = { paket: row.paket, file: (row.proof_url || "").split("/").pop() || "bukti pembayaran" };
-            renderPayBody(); renderStatus();
-          }
-        }).catch(function(){});
-      }
-      /* Pulihkan sesi Supabase yang masih aktif (termasuk setelah login Google) */
-      (function restoreSession(){
-        var sb = getSB();
-        if(!sb || !sb.auth) return;
-        sb.auth.getSession().then(function(res){
-          var sess = res.data && res.data.session;
-          if(sess && sess.user){
-            state.user = { id: sess.user.id, email: sess.user.email, username: (sess.user.user_metadata && sess.user.user_metadata.username) || (sess.user.email || "").split("@")[0] };
-            renderAuthArea(); renderAuthPage(); renderPayBody(); renderStatus();
-            syncAccount();
-          }
-        }).catch(function(){});
-        if(sb.auth.onAuthStateChange){
-          sb.auth.onAuthStateChange(function(event, session){
-            if(session && session.user && (!state.user || state.user.id !== session.user.id)){
-              state.user = { id: session.user.id, email: session.user.email, username: (session.user.user_metadata && session.user.user_metadata.username) || (session.user.email || "").split("@")[0] };
-              renderAuthArea(); renderAuthPage(); renderPayBody(); renderStatus();
-              syncAccount();
-            }
-          });
-        }
-      })();
-      /* Cek status verifikasi berkala selama ada pengajuan menunggu (pola Portal Beasiswa);
-         juga sinkronkan selama dashboard terbuka agar badge paket & gembok fitur
-         di dashboard ikut berubah begitu admin memverifikasi pembayaran. */
-      setInterval(function(){
-        if(!state.user) return;
-        if((state.pending && !state.verified) || currentRoute().page === "dashboard") syncAccount();
-      }, 20000);
-
-      /* ---------- Dashboard (setelah login — state awal user baru: semua nol) ---------- */
+      /* ---------- Dashboard (state awal: semua nol, hanya untuk sesi ini) ---------- */
       var DASH_TASKS = [
         { t:"Ikuti Tes Penempatan Singkat", s:"Bahasa Inggris · ±5 menit · memastikan titik awalmu di A1", xp:10, href:"#/level", go:"Mulai →", done:false },
         { t:"Pelajaran Pertama — Perkenalan Diri (Unit 1)", s:"Bahasa Inggris · Level A1 · ±10 menit", xp:40, href:"#/demo", go:"Mulai →", done:false },
         { t:"Sesi Percakapan AI — Topik “Perkenalan Diri”", s:"Bahasa Inggris · latihan bicara pertamamu dengan tutor AI", xp:30, href:"#/percakapan", go:"Mulai →", done:false },
         { t:"Kosakata Dasar — 10 Kata & Frasa Pertama", s:"Bahasa Inggris · sapaan dan perkenalan sehari-hari", xp:20, href:"#/demo", go:"Buka →", done:false }
       ];
-      var LOCK_CLOSED = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
       var LOCK_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.7-1.6"/></svg>';
       var DASH_FEATURES = [
-        { name:"Tutor AI tanpa batas", desc:"Ngobrol dengan tutor AI kapan saja — tanpa kuota sesi harian seperti di paket Gratis.", bg:"var(--teal-soft)", fg:"var(--teal)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' },
+        { name:"Tutor AI tanpa batas", desc:"Ngobrol dengan tutor AI kapan saja — tanpa kuota sesi harian.", bg:"var(--teal-soft)", fg:"var(--teal)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' },
         { name:"Sertifikat CEFR", desc:"Sertifikat terverifikasi setiap kamu menuntaskan satu level — siap dilampirkan ke CV.", bg:"var(--amber-soft)", fg:"var(--amber-deep)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--amber-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>' },
         { name:"Mode offline", desc:"Unduh pelajaran & kosakata ke perangkatmu, lalu belajar tanpa koneksi internet.", bg:"var(--coral-soft)", fg:"var(--coral)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>' },
         { name:"Jalur Siap Kerja", desc:"Jalur khusus JLPT / EPS-TOPIK / Goethe B1 lengkap dengan bank soal & mock exam resmi.", bg:"var(--good-soft)", fg:"var(--good)", icon:'<svg viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>' }
       ];
-      function renderDashFeatures(paid){
+      function renderDashFeatures(){
         var wrap = document.getElementById("dashFeatures");
         if(!wrap) return;
-        document.getElementById("dashFeatHint").textContent = paid
-          ? "Semua fitur paketmu sudah terbuka"
-          : "Terkunci di paket Gratis — ketuk fitur untuk upgrade";
+        document.getElementById("dashFeatHint").textContent = "Semua fitur terbuka untuk semua pelajar";
         wrap.innerHTML = "";
         DASH_FEATURES.forEach(function(f){
-          var el = document.createElement(paid ? "div" : "a");
-          el.className = "feat " + (paid ? "open" : "locked");
-          if(!paid){
-            el.href = "#/bayar";
-            el.setAttribute("aria-label", f.name + " — fitur paket berbayar, buka halaman Pilih Paket & Bayar untuk upgrade");
-          }
+          var el = document.createElement("div");
+          el.className = "feat open";
           el.innerHTML =
             '<span class="fic" style="background:' + f.bg + '">' + f.icon + '</span>' +
             '<span class="fmid"><span class="fname"></span><span class="fdesc"></span>' +
-            '<span class="fstat">' + (paid ? "Aktif di paketmu" : "Terkunci · Upgrade untuk membuka") + '</span></span>' +
-            '<span class="flock" aria-hidden="true">' + (paid ? LOCK_OPEN : LOCK_CLOSED) + '</span>';
+            '<span class="fstat">Tersedia</span></span>' +
+            '<span class="flock" aria-hidden="true">' + LOCK_OPEN + '</span>';
           el.querySelector(".fname").textContent = f.name;
           el.querySelector(".fdesc").textContent = f.desc;
           wrap.appendChild(el);
         });
       }
       function renderDashboard(){
-        var guest = document.getElementById("dashGuest");
         var main = document.getElementById("dashMain");
-        if(!guest || !main) return;
-        var logged = !!state.user;
-        guest.classList.toggle("hidden", logged);
-        main.classList.toggle("hidden", !logged);
-        if(!logged) return;
-        var name = (state.user.username || (state.user.email || "").split("@")[0] || "Pelajar");
+        if(!main) return;
+        var name = "Pelajar";
         var hr = new Date().getHours();
         var greet = hr < 11 ? "Selamat pagi" : (hr < 15 ? "Selamat siang" : (hr < 19 ? "Selamat sore" : "Selamat malam"));
         document.getElementById("dashHello").textContent = greet + ", " + name + "!";
-        /* Pembedaan paket — mengikuti kolom plan di tabel profiles Supabase
-           (state.plan / state.planActive diperbarui oleh syncAccount,
-           termasuk lewat polling verifikasi yang sudah ada). */
-        var paid = state.planActive && state.plan !== "gratis";
-        var planKey = paid ? state.plan : "gratis";
-        var chip = document.getElementById("dashPlanChip");
-        chip.className = "plan-chip plan-" + planKey;
-        chip.textContent = PLANS[planKey].name;
-        document.getElementById("dashUpsell").classList.toggle("hidden", paid);
         var langName = DASH_LANGS[getDashLang()] || "Bahasa Inggris";
         document.getElementById("dashLangName").textContent = langName;
         document.getElementById("dashCefrTitle").textContent = "Jalur Progres CEFR — " + langName;
@@ -2768,7 +2139,7 @@
         if(xpLangEl) xpLangEl.textContent = langName;
         var startLangEl = document.getElementById("dashStartLang");
         if(startLangEl) startLangEl.textContent = langName;
-        renderDashFeatures(paid);
+        renderDashFeatures();
         var list = document.getElementById("dashTasks");
         list.innerHTML = "";
         var xpToday = 0, xpTotal = 0, doneCount = 0;
@@ -2816,125 +2187,6 @@
           ctaEl.href = nextTask ? nextTask.href : "#/demo";
           ctaEl.textContent = doneCount === DASH_TASKS.length ? "Ulangi Pelajaran Hari Ini →" : "Mulai Belajar Hari Ini →";
         }
-      }
-
-      /* ---------- Paywall ---------- */
-      function selectPlan(key){
-        if(!PLANS[key]) return;
-        selectedPlan = key;
-        document.querySelectorAll("[data-plan-card]").forEach(function(c){
-          c.classList.toggle("picked", c.getAttribute("data-plan-card") === key);
-        });
-        document.querySelectorAll("[data-plan-btn]").forEach(function(b){
-          var k = b.getAttribute("data-plan-btn");
-          b.textContent = k === key ? "Paket Dipilih ✓" : ("Pilih " + PLANS[k].name);
-        });
-        renderPayBody(); renderStatus();
-      }
-      document.querySelectorAll("[data-plan-btn]").forEach(function(b){
-        b.addEventListener("click", function(){ selectPlan(b.getAttribute("data-plan-btn")); });
-      });
-
-      function renderPayBody(){
-        var body = document.getElementById("payBody");
-        if(!body) return;
-        var p = PLANS[selectedPlan];
-        var html = '<p>Paket terpilih: <strong>' + p.name + '</strong> — ' + p.priceText + ' <span style="color:var(--ink-3)">' + p.per + '</span></p>';
-        if(state.planActive && state.plan === selectedPlan){
-          html += '<div class="feedback ok" style="display:block;margin-top:14px"><strong>Paket ' + p.name + ' sudah aktif</strong> di akunmu' + (state.user ? ' (' + state.user.email + ')' : '') + '. Selamat belajar!</div>';
-        } else if(selectedPlan === "gratis"){
-          if(!state.user){
-            html += '<p style="margin-top:10px">Paket Gratis tidak perlu pembayaran — cukup masuk atau daftar akun dulu, lalu aktifkan dari sini.</p><div class="demo-actions"><a class="btn btn-amber" href="#/masuk">Masuk / Daftar Dulu</a></div>';
-          } else {
-            html += '<p style="margin-top:10px">Klik tombol di bawah untuk mengaktifkan Paket Gratis pada akun <strong>' + state.user.email + '</strong>.</p><div class="demo-actions"><button type="button" class="btn btn-amber" id="activateFree">Aktifkan Paket Gratis</button></div><p class="form-msg" id="payMsg"></p>';
-          }
-        } else if(state.pending && state.pending.paket === selectedPlan){
-          html += '<div class="feedback ok" style="display:block;margin-top:14px"><strong>Bukti terkirim.</strong> File: ' + state.pending.file + '. Status sekarang: <strong>menunggu verifikasi admin</strong>. Admin memeriksa bukti ini di Supabase dan paket ' + p.name + ' aktif di akunmu setelah disetujui.</div>';
-        } else {
-          html += '<div class="pay-detail"><strong>Cara bayar (manual):</strong><br>1. Transfer atau scan QRIS sebesar <strong>' + p.priceText + '</strong> ke tujuan pembayaran admin LangkahLisan.<br>2. Cantumkan <strong>email akunmu</strong> pada berita/catatan transfer.<br>3. Upload screenshot bukti bayar di bawah, lalu kirim untuk diverifikasi.</div>';
-          if(!state.user){
-            html += '<div class="feedback no" style="display:block">Kamu belum masuk. Verifikasi pembayaran harus terhubung ke akun — <a href="#/masuk"><strong>masuk atau daftar dulu</strong></a>, lalu kembali ke halaman ini.</div>';
-          }
-          html += '<label class="upload-label" for="proofInput"><strong>Upload bukti pembayaran</strong><span>Klik untuk memilih file gambar (JPG/PNG) — file tersimpan ke bucket “bukti-pembayaran” di Supabase untuk diverifikasi admin.</span></label>' +
-                  '<input type="file" id="proofInput" accept="image/*" class="hidden" />' +
-                  '<div class="proof-preview" id="proofPreview"></div>' +
-                  '<div class="demo-actions"><button type="button" class="btn btn-amber" id="submitProof" disabled>Kirim Bukti &amp; Minta Verifikasi</button></div>' +
-                  '<p class="form-msg" id="payMsg"></p>';
-        }
-        body.innerHTML = html;
-
-        var af = document.getElementById("activateFree");
-        if(af) af.addEventListener("click", function(){
-          state.plan = "gratis"; state.planActive = true;
-          renderPayBody(); renderStatus(); renderAuthPage();
-        });
-        var pi = document.getElementById("proofInput");
-        if(pi) pi.addEventListener("change", function(){
-          var f = pi.files && pi.files[0];
-          if(!f) return;
-          proofFile = { name: f.name, raw: f, url: (window.URL && URL.createObjectURL) ? URL.createObjectURL(f) : "" };
-          var prev = document.getElementById("proofPreview");
-          prev.innerHTML = (proofFile.url ? '<img src="' + proofFile.url + '" alt="Pratinjau bukti pembayaran yang dipilih" />' : '') +
-                           '<p class="fn">' + f.name + '</p>';
-          var sp = document.getElementById("submitProof");
-          if(sp) sp.disabled = !state.user;
-          if(!state.user){
-            var pm = document.getElementById("payMsg");
-            pm.textContent = "Bukti siap — tapi kamu harus masuk dulu agar verifikasi terhubung ke akunmu.";
-            pm.className = "form-msg no";
-          }
-        });
-        var sp2 = document.getElementById("submitProof");
-        if(sp2) sp2.addEventListener("click", submitProof);
-      }
-
-      function submitProof(){
-        if(!proofFile) return;
-        var pm = document.getElementById("payMsg");
-        var sb = getSB();
-        if(sb && state.user){
-          pm.textContent = "Mengupload bukti ke Supabase…"; pm.className = "form-msg";
-          var path = (state.user.id || state.user.email.replace(/[^a-zA-Z0-9]/g, "_")) + "/" + Date.now() + "-" + proofFile.name;
-          sb.storage.from("bukti-pembayaran").upload(path, proofFile.raw).then(function(up){
-            if(up.error){ pm.textContent = "Upload gagal: " + up.error.message; pm.className = "form-msg no"; return; }
-            return sb.from("verifikasi").insert({ user_id: state.user.id || null, paket: selectedPlan, proof_url: path, status: "menunggu" }).then(function(ins){
-              if(ins.error){ pm.textContent = "Upload berhasil, tapi pencatatan verifikasi gagal: " + ins.error.message; pm.className = "form-msg no"; return; }
-              state.pending = { paket: selectedPlan, file: proofFile.name };
-              renderPayBody(); renderStatus();
-            });
-          }).catch(function(err){ pm.textContent = "Gagal terhubung ke Supabase: " + err.message; pm.className = "form-msg no"; });
-        } else if(!state.user){
-          pm.textContent = "Kamu harus masuk dulu agar bukti terhubung ke akunmu."; pm.className = "form-msg no";
-        } else {
-          pm.textContent = "Tidak dapat terhubung ke Supabase. Periksa koneksi internetmu, lalu coba lagi."; pm.className = "form-msg no";
-        }
-      }
-
-      function renderStatus(){
-        var el = document.getElementById("statusBody");
-        if(!el) return;
-        var paidSelected = selectedPlan !== "gratis";
-        var activePaid = state.planActive && state.plan !== "gratis";
-        var verPill = state.verified ? '<span class="pill ok">Terverifikasi</span>'
-          : (state.pending ? '<span class="pill warn">Menunggu verifikasi</span>' : '<span class="pill mut">Belum ada pengajuan</span>');
-        var s2 = (state.pending || activePaid) ? "done" : (paidSelected && state.user ? "now" : "");
-        var s3 = state.verified ? "done" : (state.pending ? "now" : "");
-        var s4 = (state.planActive || state.verified) ? "done" : "";
-        function item(cls, mark, label){
-          return '<li class="' + cls + '"><span class="dot">' + mark + '</span><span class="lbl">' + label + '</span></li>';
-        }
-        el.innerHTML =
-          '<dl class="kv">' +
-            '<div><dt>Email</dt><dd>' + (state.user ? state.user.email : "Belum masuk") + '</dd></div>' +
-            '<div><dt>Paket aktif</dt><dd>' + (state.planActive ? PLANS[state.plan].name : "—") + '</dd></div>' +
-            '<div><dt>Verifikasi</dt><dd>' + verPill + '</dd></div>' +
-          '</dl>' +
-          '<ul class="status-list">' +
-            item("done", "✓", "Pilih paket — " + PLANS[selectedPlan].name) +
-            item(s2, "2", state.pending ? "Bukti terkirim: " + state.pending.file : "Bayar & upload bukti pembayaran") +
-            item(s3, "3", "Verifikasi manual oleh admin") +
-            item(s4, "4", "Akses paket terbuka") +
-          '</ul>';
       }
 
       /* ---------- AI conversation: data (simulasi lokal) ---------- */
@@ -3417,7 +2669,7 @@
             '<div class="sum-box"><h4>Kesalahan yang Sering Muncul</h4><ul>' + mistakeLis + "</ul></div>" +
             '<div class="sum-box"><h4>Saran Latihan Lanjutan</h4><ul>' + saranLis + "</ul></div>" +
           "</div>" +
-          '<div class="demo-actions"><button type="button" class="btn btn-amber" id="sumAgain">Ulangi Topik Ini</button><a class="btn btn-ghost" href="#/demo">Latihan Terpandu di Demo</a><a class="btn btn-ghost" href="#/harga">Lihat Paket Belajar</a></div>' +
+          '<div class="demo-actions"><button type="button" class="btn btn-amber" id="sumAgain">Ulangi Topik Ini</button><a class="btn btn-ghost" href="#/demo">Latihan Terpandu di Demo</a><a class="btn btn-ghost" href="#/dashboard">Ke Dashboard Belajar</a></div>' +
           '<p style="font-size:12.5px;color:var(--ink-3);margin-top:12px">Rangkuman ini dihitung lokal dari pencocokan pola jawabanmu dengan skenario sesi (simulasi mockup) — di versi produksi, analisisnya dikerjakan model AI dan tersimpan di riwayat belajarmu.</p>';
         document.getElementById("sumAgain").addEventListener("click", function(){
           startConv();
@@ -3473,25 +2725,8 @@
       updateConvHead(); updateConvHint();
 
       /* ---------- Init ---------- */
-      renderConfigStatus();
-      renderAuthArea();
-      renderAuthPage();
-      selectPlan("premium");
       applyRoute();
 
-      /* ---------- Pricing toggle ---------- */
-      var bm = document.getElementById("btnMonthly"), by = document.getElementById("btnYearly");
-      var pp = document.getElementById("premiumPrice"), pper = document.getElementById("premiumPer");
-      bm.addEventListener("click", function(){
-        bm.setAttribute("aria-pressed","true"); by.setAttribute("aria-pressed","false");
-        pp.innerHTML = 'Rp99.000<small> /bulan</small>';
-        pper.textContent = "dibayar bulanan · berhenti kapan saja";
-      });
-      by.addEventListener("click", function(){
-        by.setAttribute("aria-pressed","true"); bm.setAttribute("aria-pressed","false");
-        pp.innerHTML = 'Rp790.000<small> /tahun</small>';
-        pper.textContent = "setara ±Rp65.800/bulan · hemat 33%";
-      });
     })();
     </script>
   </body>
